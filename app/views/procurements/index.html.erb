@@ -1,0 +1,31 @@
+<h1>Listando Procurações</h1>
+ 
+<table>
+		<tr><td><%= link_to 'Link para lista de Procurações', controller: 'procurements' %></td></tr>
+	<tr><td><br></td></tr>
+	<tr>
+		<td><%= link_to 'Nova Procuração', new_procurement_path %></td>
+	</tr>
+	<tr><th colspan="3">
+ 
+	<%= form_tag("/search", method: "get") do %>
+		<%= label_tag(:q, "Search for:") %>
+		<%= text_field_tag(:q) %>
+		<%= submit_tag("Search") %>
+	<% end %>
+	</th></tr>
+  <tr>
+    <th> Título </th>
+  </tr>
+  
+  <% @procurements.each do |procurement| %>
+    <tr>
+      <td><%= procurement.cliente %></td>
+      <td><%= link_to 'Show', procurement_path(procurement) %></td>
+      <td><%= link_to 'Editar', edit_procurement_path(procurement) %></td>
+      <td><%= link_to 'Destroy', procurement_path(procurement),
+              method: :delete,
+              data: { confirm: 'Tem certeza?' } %></td>
+    </tr>
+  <% end %>
+</table>

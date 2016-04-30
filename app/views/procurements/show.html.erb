@@ -1,0 +1,85 @@
+
+<div class="Table">
+    <div class="Title">
+        <p>Dados Gerais</p>
+    </div>
+    <div class="Row">
+        <div class="Cell colspan2">
+            <p class="Subtitle">Cliente: </p><p> <%= @procurement.cliente %></p>
+        </div>
+        <div class="Cell colspan2">
+            <p class="Subtitle">Telefone: </p><p><%= @procurement.fones %></p>
+        </div>
+    </div>
+	<div class="Row">
+		<div class="Cell">
+			<p class="Subtitle">RG: </p><p><%= @procurement.rg %></p>
+		</div>
+        <div class="Cell">
+            <p class="Subtitle">CPF: </p><p><%= @procurement.cpf %></p>
+        </div>
+        <div class="Cell">
+            <p class="Subtitle">Estado Civil: </p><p> </p>
+        </div>
+    </div>
+    <div class="Row">
+		<div class="Cell">
+			<p class="Subtitle">Endereço: </p><p> <%= @procurement.endereco %></p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">Bairro </p><p><%= @procurement.bairro %> </p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">Cidade: </p><p><%= @procurement.cidade %></p>
+		</div>
+	</div>
+    <div class="Row">
+		<div class="Cell">
+			<p class="Subtitle">Parte Contrária: </p><p><%= @procurement.parte_contraria %></p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">CNPJ: </p><p><%= @procurement.cnpj %></p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">Nome Fantasia: </p>
+			<p><%= @procurement.nome_fantasia %></p>
+		</div>
+	</div>
+    <div class="Row">
+		<div class="Cell">
+			<p class="Subtitle">Endereço: </p>
+			<p><%= @procurement.endereco_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">Bairro: </p>
+			<p><%= @procurement.bairro_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">Cidade: </p>
+			<p><%= @procurement.cidade_empresa %></p>
+		</div>
+	</div>
+    <div class="Row">
+		<div class="Cell">
+			<p class="Subtitle">Proprietário: </p>
+			<p><%= @procurement.proprietario_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">CEP: </p>
+			<p><%= @procurement.cep_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p class="Subtitle">Ramo de Atividade: </p>
+			<p><%= @procurement.ramo_de_atividade %></p>
+		</div>
+	</div>
+    <div class="Row">
+		<div class="Cell">
+			<p class="Subtitle">Objeto de Ação: </p>
+			<p><%= @procurement.objeto_de_acao %></p>
+		</div>
+	</div>
+</div>
+<%= link_to 'Editar', edit_procurement_path(@procurement) %> |
+<%= link_to "Gerar PDF", procurement_path(@procurement, :format => 'pdf') %> |
+<%= link_to 'Voltar', procurements_path %>

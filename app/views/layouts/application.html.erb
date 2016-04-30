@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gscontratos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+    .Table
+    {
+        display: table;
+        width: 100%;
+    }
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Subtitle
+    {
+    	text-align: left;
+    	font-weight: bold;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+    }
+    .Row
+    {
+        display: table;
+        flex-flow: row wrap;
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    div.colspan,div.colspan+div.cell
+	{
+    border:0;
+	}
+
+div.colspan>div
+	{
+    width:1px;
+	}
+
+div.colspan>div>div
+	{
+    position:relative;
+    width:99px;
+    overflow:hidden;
+	}
+
+.textarea
+	{
+    width: 90%;
+    height: 100%;
+	}
+</style>
+</head>
+    <div id="main-container" class="container-fluid">
+      <div class="row">
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

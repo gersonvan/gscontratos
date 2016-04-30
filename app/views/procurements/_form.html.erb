@@ -1,0 +1,408 @@
+<%= form_for @procurement do |f| %>
+<% if @procurement.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@procurement.errors.count, "erro") %> ao Salvar procuração:
+      </h2>
+      <ul>
+        <% @procurement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="Table">
+    <div class="Title">
+        <p>Dados Gerais</p>
+    </div>
+    <div class="Row">
+        <div class="Cell colspan2">
+  			<p><%= f.label :cliente %><br><%= f.text_field :cliente %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :telefone %><br><%= f.text_field :fones %></p>
+  		</div>
+  	</div>
+    <div class="Row">
+        <div class="Cell">
+			<p><%= f.label :rg %><br><%= f.text_field :rg %></p>
+		</div>
+		<div class="Cell">
+			<p><%= f.label :cpf %><br><%= f.text_field :cpf %></p>
+		</div>
+		<div class="Cell">
+			<p><%= f.label :estado_civil %><br></p>
+		</div>
+	</div>
+    <div class="Row">
+		<div class="Cell">
+			<p><%= f.label :endereço %><br><%= f.text_field :endereco %></p>
+		</div>
+ 		<div class="Cell">
+			<p><%= f.label :bairro %><br><%= f.text_field :bairro %></p>
+		</div>
+		<div class="Cell">
+			<p><%= f.label :cidade %><br><%= f.text_field :cidade %></p>
+		</div>
+	</div>
+ 	<div class="Row">
+		<div class="Cell">
+ 			<p><%= f.label :parte_contrária %><br><%= f.text_field :parte_contraria %></p>
+ 		</div>
+ 		<div class="Cell">
+ 			<p><%= f.label :cnpj %><br><%= f.text_field :cnpj %></p>
+ 		</div>
+ 		<div class="Cell">
+			<p><%= f.label :nome_fantasia %><br><%= f.text_field :nome_fantasia %></p>
+		</div>
+	</div>
+ 	<div class="Row">
+		<div class="Cell">
+			<p><%= f.label :endereço %><br><%= f.text_field :endereco_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p><%= f.label :bairro %><br><%= f.text_field :bairro_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p><%= f.label :cidade %><br><%= f.text_field :cidade_empresa %></p>
+		</div>
+	</div>
+	<div class="Row">
+		<div class="Cell">
+			<p><%= f.label :proprietário %><br><%= f.text_field :proprietario_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p><%= f.label :cep %> <br><%= f.text_field :cep_empresa %></p>
+		</div>
+		<div class="Cell">
+			<p><%= f.label :ramo_de_atividade %><br><%= f.text_field :ramo_de_atividade %></p>
+		</div>
+	</div>
+	<div class="Row">
+		<div class="Cell"> 
+ 			<p><%= f.label :objeto_de_ação %><br><%= f.text_area :objeto_de_acao %></p>
+		</div>
+	</div>
+</div>
+<hr>
+  <div class="Table">
+	<div class="Title">
+        <p>Contrato de Trabalho</p>
+    </div>
+    <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :data_início_TR %><br><%= f.date_field :data_inicio_tr %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :reg_ctps %><br><%= f.text_field :reg_ctps %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :d_registro %><br><%= f.date_field :data_registro %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :período_avulso %><br><%= f.text_field :periodo_avulso %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :função %><br><%= f.text_field :funcao %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :salário_final %><br><%= f.number_field :salario_final %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :forma_de_pagamento %><br><%= f.text_field :forma_pagto %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :comissões %><br><%= f.text_field :comissoes %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :cotas_sal_fam %><br><%= f.number_field :cotas_sal_fam %></p>
+  		</div>
+  	</div>
+  	<div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :recebia_ccheq %><br><%= f.text_field :recebia_ccheq %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :pg_hextras %><br><%= f.text_field :pg_hextras %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :insalubridade %><br><%= f.text_field :insalubridade %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :periculosidade %><br><%= f.text_field :periculosidade %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :ad_noturno %><br><%= f.text_field :ad_noturno %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :pg_por_fora %><br><%= f.text_field :pg_por_fora %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :gorjeta %><br><%= f.text_field :gorjeta %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :viagens_ajuda_de_custo %><br><%= f.text_field :viagens_ajuda_custo %></p>
+  		</div>
+  	</div>
+  	<div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :recebeu_férias %><br><%= f.text_field :recebeu_ferias %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :períodos_ñ_gozados %><br><%= f.text_field :periodos_n_gozados %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :recebia_13º %><br><%= f.text_field :recebia_13 %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :ano_que_não_recebeu_13º %><br><%= f.number_field :ano_que_n_recebeu_13 %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :recebia_plr %><br><%= f.text_field :recebia_pl %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :gratificações %><br><%= f.text_field :gratificacoes %></p>
+  		</div>
+  		<div class="Cell colspan2">
+  			<p><%= f.label :outros %><br><%= f.text_field :outros %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :local_de_trabalho %><br><%= f.text_field :local_de_trabalho %></p>
+  		</div>
+  	</div>
+  </div>
+<hr>
+<div class="Table">
+	<div class="Title">
+        <p>Jornada e Horário de Trabalho</p>
+    </div>
+    <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :jornada %><br><%= f.text_field :jornada %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :horario %><br><%= f.time_field :horario %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :intervalo %><br><%= f.text_field :intervalo %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :sábado %><br><%= f.text_field :sabado %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :domingo_feriado_dia_santo %><br><%= f.text_field :domingo_feriado_dia_santo %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :trabalhou_noutros_horarios %><br><%= f.text_field :trabalhou_noutros_horarios %></p>
+  		</div>
+  	</div>
+  	<div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :h_extra_no_c_cheque %><br><%= f.text_field :h_extra_no_c_cheque %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :qte_he_semana %><br><%= f.text_field :qte_he_semana %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :folga_qdo %><br><%= f.text_field :folga_qdo %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :banco_de_horas %><br><%= f.text_field :banco_de_horas %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :recebia_vr_hex_correto %><br><%= f.text_field :recebia_vr_hex_correto %></p>
+  		</div>
+  	</div>
+  	<div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :tipo_registro_de_hora %><br><%= f.text_field :tipo_registro_de_hora %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :ass_cartao %><br><%= f.text_field :ass_cartao %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :cliente %><br><%= f.text_field :cliente %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :saida_na_hora %><br><%= f.text_field :saida_na_hora %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :escala_turno %><br><%= f.text_field :escala_turno %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :h_intervalar_tempo %><br><%= f.text_field :h_intervalar_tempo %></p>
+  		</div>
+  	</div>
+  </div>
+<hr>
+<div class="Table">
+ 	<div class="Title">
+        <p>Demissão e Pagamento - Verbas Rescisórias</p>
+    </div>
+   <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :demitido %><br><%= f.text_field :demitido %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :motivo %><br><%= f.text_field :motivo %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :data_aviso %><br><%= f.date_field :data_aviso %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :ultimo_dia_trabalhado %><br><%= f.date_field :ultimo_dia_trabalhado %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :assinou_trct %><br><%= f.text_field :assinou_trct %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :homologacao_sindicato %><br><%= f.text_field :homologacao_sindicato %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :ressalva %><br><%= f.text_field :ressalva %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :assinou_algum_documento %><br><%= f.text_field :assinou_algum_documento %></p>
+  		</div>
+  	</div>
+   <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :motivo_da_demissao %><br><%= f.text_area :motivo_da_demissao %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :recebeu_algum_valor %><br><%= f.text_field :recebeu_algum_valor %></p>
+  		</div>
+  	</div>
+    <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :quem_demitiu %><br><%= f.text_field :quem_demitiu %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :qte_de_faltas %><br><%= f.number_field :qte_de_faltas %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :qte_atestados %><br><%= f.number_field :qte_atestados %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :qte_suspensao %><br><%= f.number_field :qte_suspensao %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :qte_advertencia %><br><%= f.number_field :qte_advertencia %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :res_indireta %><br><%= f.text_field :res_indireta %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :assedio %><br><%= f.text_field :assedio %></p>
+  		</div>
+  	</div>	
+  	 <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :vr_recebido_rescisao %><br><%= f.text_field :vr_recebido_rescisao %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :fgts %><br><%= f.text_field :fgts %></p>
+  			<br>
+  			<p><%= f.label :parcial_fgts %><br><%= f.text_field :parcial_fgts %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :fgts_40 %><br><%= f.text_field :quarenta_fgts %></p>
+  			<br>
+  			<p><%= f.label :parcial_40_fgts %><br><%= f.text_field :parcial_quarenta_fgts %></p>
+  		</div>
+ 		<div class="Cell">
+			<p><%= f.label :data_baixa_na_ctps %><br><%= f.text_field :data_baixa_na_ctps %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :devolucao_ctps %><br><%= f.text_field :devolucao_ctps %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :recebeu_gsd %><br><%= f.text_field :recebeu_gsd %></p>
+  		</div>
+  	</div>
+  </div>
+<hr>
+<div class="Table">
+	<div class="Title">
+        <p>Gestante</p>
+    </div>
+    <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :inicio_gestacao %><br><%= f.text_field :inicio_gestacao %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :atestados_ultrasom %><br><%= f.text_field :atestados_ultrasom %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :deu_conhecimento_na_empresa %><br><%= f.text_field :deu_conhecimento_na_empresa %></p>
+			<br>
+  			<p><%= f.label :p_quem %><br><%= f.text_field :p_quem %></p>			
+  		</div>
+ 		<div class="Cell">
+			<p><%= f.label :licenca_maternidade %><br><%= f.text_field :licenca_mater %></p>
+  		</div>
+ 		<div class="Cell">
+			<p><%= f.label :suspensão %><br><%= f.text_field :suspensao %></p><br>
+			<p><%= f.label :qte_suspensão_gestante %><br><%= f.number_field :qte_suspensao_gestante %></p>
+			<br>
+			<p><%= f.label :advertencia %><br><%= f.text_field :advertencia %></p>
+			<p><%= f.label :qte_advertencia_gestante %><br><%= f.text_field :qte_advertencia_gestante %></p>
+  		</div>
+  		<div class="Cell">  			
+  		</div>
+  	</div>
+  </div>
+<hr>
+  <div class="Table">
+  	<div class="Title">
+        <p>Acidente de Trabalho</p>
+    </div>
+    <div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :data_e_hora %><br><%= f.datetime_field :data_e_hora %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :dentro_fora_da_empresa %><br><%= f.text_field :dentro_fora_da_empresa %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :socorro_hospital %><br><%= f.text_field :socorro_hospital %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :emissao_cat %><br><%= f.text_field :emissao_cat %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :afastamento_inss %><br><%= f.text_field :afastamento_inss %></p>
+  		</div>
+  	</div>
+  	<div class="Row">
+        <div class="Cell">
+  			<p><%= f.label :sequelas %><br><%= f.text_field :sequelas %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :parte_atingida %><br><%= f.text_field :parte_atingida %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :mudanca_funcao %><br><%= f.text_field :mudanca_funcao %></p>
+  		</div>
+ 		<div class="Cell">
+  			<p><%= f.label :nova_função %><br><%= f.text_field :nova_funcao %></p>
+  		</div>
+  		<div class="Cell">
+  			<p><%= f.label :a_partir_de_quando %><br><%= f.text_field :a_partir_de_quando %></p>
+  		</div>
+  	</div>
+<hr>
+<div class="Table">
+  	<div class="Title">
+        <p>Observações Complementares
+    </div>
+    <div class="Row">
+        <div class="Cell">
+        	<p><%= f.text_area :observacoes_complementares %></p>
+  		</div>
+  	</div>
+ </div>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
