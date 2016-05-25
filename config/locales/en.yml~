@@ -20,10 +20,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  date:
-    datepicker:
-      default: "dd/mm/yyyy"
-      long: "dd MM, yyyy"
-    formats:
-      default: "%d/%m/%Y"
-      long: ! '%d %B, %Y'
+  hello: "Hello world"
