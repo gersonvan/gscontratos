@@ -14,13 +14,14 @@ class ReportPdf < Prawn::Document
   end
 
   def header
-    text "G & S ADVOGADOS  " + "  FICHA DE ATENDIMENTO DE RECLAMAÇÃO TRABALHISTA  " + "  DATA: " + Date.today.strftime("%d/%m/%Y").to_s
+    text "G & S ADVOGADOS"
+    text "Ficha de Atendimento de Reclamação Trabalhista"
+    text "DATA: " + Date.today.strftime("%d/%m/%Y").to_s
   end
 
   def table1_content
     table procurement_rows_table1, :cell_style => { :font=> "#{Prawn::DATADIR}/fonts/calibri.ttf", :size => 7}
   end
-
   def table2_content
     table procurement_rows_table2, :cell_style => { :font=> "#{Prawn::DATADIR}/fonts/calibri.ttf", :size => 7}
   end
@@ -38,24 +39,25 @@ class ReportPdf < Prawn::Document
   end
   def procurement_rows_table1
     [
-      [{:content => 'CLIENTE: '+ @procurement.cliente , :colspan => 8},
-        "FONES: "+ @procurement.fones.to_s],
-      [{:content => 'RG: '+ @procurement.rg.to_s, :colspan => 3},
-        {:content => 'CPF: '+ @procurement.cpf.to_s, :colspan => 3},
-        {:content => 'ESTADO CIVIL: '+ @procurement.estado_civil.to_s, :colspan =>3}],
-      [{:content => 'ENDEREÇO: '+ @procurement.endereco.to_s, :colspan => 5},
-        {:content => 'BAIRRO: '+ @procurement.bairro.to_s, :colspan => 2},
-        {:content => 'CIDADE: '+ @procurement.cidade.to_s, :colspan =>2}],
-      [{:content => 'PARTE CONTRÁRIA: '+ @procurement.parte_contraria.to_s, :colspan => 3},
-        {:content => 'CNPJ: '+ @procurement.cnpj.to_s, :colspan => 3},
-        {:content => 'NOME FANTASIA: '+ @procurement.nome_fantasia.to_s, :colspan =>3}],
-      [{:content => 'ENDEREÇO: '+ @procurement.endereco_empresa.to_s, :colspan => 5},
-        {:content => 'BAIRRO: '+ @procurement.bairro_empresa.to_s, :colspan => 2},
-        {:content => 'CIDADE: '+ @procurement.cidade_empresa.to_s, :colspan =>2}],
-      [{:content => 'PROPRIETÁRIO: '+ @procurement.proprietario_empresa.to_s, :colspan => 3},
-        {:content => 'CEP: '+ @procurement.cep_empresa.to_s, :colspan => 3},
-        {:content => 'RAMO DE ATIVIDADE:'+ @procurement.ramo_de_atividade.to_s, :colspan =>3}],
-      [{:content => 'OBJETO DE AÇÃO: '+ @procurement.objeto_de_acao.to_s, :colspan => 9}]
+      [{:content => 'DADOS GERAIS', :colspan => 9}],
+        [{:content => 'CLIENTE: '+ @procurement.cliente.to_s, :colspan => 6},
+          {:content => 'FONES: '+ @procurement.fones.to_s, :colspan => 3}],
+        [{:content => 'RG: '+ @procurement.rg.to_s, :colspan => 3},
+          {:content => 'CPF: '+ @procurement.cpf.to_s, :colspan => 3},
+          {:content => 'ESTADO CIVIL: '+ @procurement.estado_civil.to_s, :colspan =>3}],
+        [{:content => 'ENDEREÇO: '+ @procurement.endereco.to_s, :colspan => 4},
+          {:content => 'BAIRRO: '+ @procurement.bairro.to_s, :colspan => 3},
+          {:content => 'CIDADE: '+ @procurement.cidade.to_s, :colspan =>2}],
+        [{:content => 'PARTE CONTRÁRIA: '+ @procurement.parte_contraria.to_s, :colspan => 4},
+          {:content => 'CNPJ: '+ @procurement.cnpj.to_s, :colspan => 2},
+          {:content => 'NOME FANTASIA: '+ @procurement.nome_fantasia.to_s, :colspan =>3}],
+        [{:content => 'ENDEREÇO: '+ @procurement.endereco_empresa.to_s, :colspan => 4},
+          {:content => 'BAIRRO: '+ @procurement.bairro_empresa.to_s, :colspan => 3},
+          {:content => 'CIDADE: '+ @procurement.cidade_empresa.to_s, :colspan =>2}],
+        [{:content => 'PROPRIETÁRIO: '+ @procurement.proprietario_empresa.to_s, :colspan => 5},
+          {:content => 'CEP: '+ @procurement.cep_empresa.to_s, :colspan => 2},
+          {:content => 'RAMO DE ATIVIDADE:'+ @procurement.ramo_de_atividade.to_s, :colspan =>2}],
+        [{:content => 'OBJETO DE AÇÃO: '+ @procurement.objeto_de_acao.to_s, :colspan => 9}]
      ]
   end
   
@@ -87,25 +89,24 @@ class ReportPdf < Prawn::Document
          {:content => 'GRATIFICAÇÕES ? '+ @procurement.gratificacoes.to_s, :colspan => 1},
          {:content => 'OUTROS?' + @procurement.outros.to_s, :colspan => 1},
          {:content => 'LOCAL DE TRABALHO: '+ @procurement.local_de_trabalho.to_s, :colspan => 2}]
-
     ]
     end
 
   def procurement_rows_table3
     [
-      [{:content => 'JORNADA E HORÁRIO DE TRABALHO', :colspan => 6}],
-        [{:content => 'JORNADA: '+ @procurement.jornada.to_s, :colspan => 1},
+      [{:content => 'JORNADA E HORÁRIO DE TRABALHO', :colspan => 9}],
+        [{:content => 'JORNADA: '+ @procurement.jornada.to_s, :colspan => 2},
           {:content => 'HORÁRIO: '+ @procurement.horario.to_s, :colspan => 1},
-          {:content => 'INTERVALO: '+ @procurement.intervalo.to_s, :colspan => 1},
-          {:content => 'SÁBADO: '+ @procurement.sabado.to_s, :colspan => 1},
+          {:content => 'INTERVALO: '+ @procurement.intervalo.to_s, :colspan => 2},
+          {:content => 'SÁBADO: '+ @procurement.sabado.to_s, :colspan => 2},
           {:content => 'DOM/FERIADOS/D.SANTOS: '+ @procurement.domingo_feriado_dia_santo.to_s, :colspan => 1},
           {:content => 'TRABALHOU NOUTROS HORÁRIOS: '+ @procurement.trabalhou_noutros_horarios.to_s, :colspan => 1}],
         [{:content => 'Hora Extra no C. cheque? '+ @procurement.h_extra_no_c_cheque.to_s, :colspan => 1},
           {:content => 'QTE HE/semana: '+ @procurement.qte_he_semana.to_s, :colspan => 1},
           {:content => 'Folga Quando? '+ @procurement.folga_qdo.to_s, :colspan => 1},
           {:content => 'Banco de Horas? '+ @procurement.banco_de_horas.to_s, :colspan => 1},
-          {:content => 'Recebia Vr HEx correto?: '+ @procurement.recebia_vr_hex_correto.to_s, :colspan => 1}],
-        [{:content => 'TIPO REGISTRO DE HORA: '+ @procurement.tipo_registro_de_hora.to_s, :colspan => 1},
+          {:content => 'Recebia Vr HEx correto?: '+ @procurement.recebia_vr_hex_correto.to_s, :colspan => 2}],
+        [{:content => 'TIPO REGISTRO DE HORA: '+ @procurement.tipo_registro_de_hora.to_s, :colspan => 2},
           {:content => 'ASS CARTÃO: '+ @procurement.ass_cartao.to_s, :colspan => 1},
           {:content => 'SAÍDA NA HORA: '+ @procurement.saida_na_hora.to_s, :colspan => 1},
           {:content => 'ESCALA/TURNO: '+ @procurement.escala_turno.to_s, :colspan => 1},

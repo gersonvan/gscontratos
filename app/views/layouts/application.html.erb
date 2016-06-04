@@ -1,23 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
+
 <head>
   <title>Gscontratos</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
+	
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<%= csrf_meta_tags %>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+   $("#telefone").inputmask({"mask": "(99) 9 9999-9999", 'removeMaskOnSubmit': true});
+   $("#cpf").inputmask({"mask": "999.999.999-99", 'removeMaskOnSubmit': true});
+   $("#cep").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
+   $("#cep2").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
+   $("#cnpj").inputmask({"mask": "99.999.999/9999-99", 'removeMaskOnSubmit': true});
+});
+</script>
+
 </head>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
-        <div class="col-xs-12">
-          <% flash.each do |name, msg| -%>
-            <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-          <% end -%>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <%= yield %>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <%= yield %>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+          <% end %>
         </div>
       </div>
     </div>

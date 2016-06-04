@@ -1,31 +1,49 @@
-<h1>Listando Procurações</h1>
- 
-<table>
-		<tr><td><%= link_to 'Link para lista de Procurações', controller: 'procurements' %></td></tr>
-	<tr><td><br></td></tr>
+<h1>Procurações</h1>
+<table class="table">
 	<tr>
-		<td><%= link_to 'Nova Procuração', new_procurement_path %></td>
+		<td>
+			<%= form_tag(procurements_path, :method => "get", id: "search-form") do %>
+				<%= text_field_tag :search, params[:search], placeholder: "Buscar Procuração" %>
+				<%= button_tag(type: "submit", class: "btn btn-default") do %>
+					<i class="glyphicon glyphicon-search"></i>
+					Buscar
+				<% end %>
+				<%= link_to procurements_path,  class: 'btn btn-default' do %>
+				<span class="glyphicon glyphicon-menu-hamburger"></span>
+				Voltar para lista
+				<% end %>
+			<% end %>
+		</td>
 	</tr>
-	<tr><th colspan="3">
- 
-	<%= form_tag("/search", method: "get") do %>
-		<%= label_tag(:q, "Search for:") %>
-		<%= text_field_tag(:q) %>
-		<%= submit_tag("Search") %>
-	<% end %>
-	</th></tr>
-  <tr>
-    <th> Título </th>
-  </tr>
-  
-  <% @procurements.each do |procurement| %>
-    <tr>
-      <td><%= procurement.cliente %></td>
-      <td><%= link_to 'Show', procurement_path(procurement) %></td>
-      <td><%= link_to 'Editar', edit_procurement_path(procurement) %></td>
-      <td><%= link_to 'Destroy', procurement_path(procurement),
-              method: :delete,
-              data: { confirm: 'Tem certeza?' } %></td>
-    </tr>
-  <% end %>
+	<tr>
+		<td style="text-align:right">
+			<%= link_to ' Novo Cadastro', new_procurement_path, class: 'glyphicon glyphicon-plus' %>
+		</td>
+	</tr>
 </table>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th style="text-align:center"> Cliente</th>
+			<th style="text-align:center"> CPF </th>
+			<th colspan="4" style="text-align:center"> Opções </th>
+		</tr>
+	</thead>
+	<% @procurements.each do |procurement| %>
+	<tr>
+		<td><%= procurement.cliente %></td>
+		<td><%= procurement.cpf %></td>
+		<td><%= link_to ' ', procurement_path(procurement), class: 'glyphicon glyphicon-eye-open' %></td>
+		<td><%= link_to ' ', edit_procurement_path(procurement), class: 'glyphicon glyphicon-pencil' %></td>
+		<td><%= link_to '', edit_procurement_path(procurement), class: 'glyphicon glyphicon-file' %>
+		<br/>
+		<%= link_to '', procurement_path(procurement, :format => 'pdf'),
+			class: 'glyphicon glyphicon-list'  %></td>
+		<td><%= link_to procurement_path(procurement), 
+			method: :delete,
+			data: { confirm: 'Tem certeza?' } do %>
+			<span class="glyphicon glyphicon-trash"></span>
+			<% end %></td>
+	</tr>
+	<% end %>
+	</table>

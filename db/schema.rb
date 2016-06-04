@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429233034) do
+ActiveRecord::Schema.define(version: 20160603232542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,17 +28,17 @@ ActiveRecord::Schema.define(version: 20160429233034) do
   create_table "procurements", force: :cascade do |t|
     t.string   "cliente"
     t.text     "descricao"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "fones"
-    t.integer  "rg"
-    t.integer  "cpf"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "fones",                       limit: 8
+    t.integer  "rg",                          limit: 8
+    t.integer  "cpf",                         limit: 8
     t.string   "estado_civil"
     t.string   "endereco"
     t.string   "bairro"
     t.string   "cidade"
     t.string   "parte_contraria"
-    t.integer  "cnpj"
+    t.integer  "cnpj",                        limit: 8
     t.string   "nome_fantasia"
     t.string   "endereco_empresa"
     t.string   "bairro_empresa"
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20160429233034) do
     t.date     "data_registro"
     t.string   "periodo_avulso"
     t.string   "funcao"
-    t.decimal  "salario_final"
+    t.float    "salario_final"
     t.string   "forma_pagto"
     t.string   "comissoes"
-    t.decimal  "cotas_sal_fam"
+    t.float    "cotas_sal_fam"
     t.string   "recebia_ccheq"
     t.string   "pg_hextras"
     t.string   "insalubridade"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20160429233034) do
     t.string   "recebeu_ferias"
     t.string   "periodos_n_gozados"
     t.string   "recebia_13"
-    t.integer  "ano_que_n_recebeu_13"
+    t.integer  "ano_que_n_recebeu_13",        limit: 8
     t.string   "recebia_pl"
     t.string   "gratificacoes"
     t.string   "outros"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160429233034) do
     t.string   "domingo_feriado_dia_santo"
     t.string   "trabalhou_noutros_horarios"
     t.string   "h_extra_no_c_cheque"
-    t.integer  "qte_he_semana"
+    t.integer  "qte_he_semana",               limit: 8
     t.string   "folga_qdo"
     t.string   "banco_de_horas"
     t.string   "recebia_vr_hex_correto"
@@ -100,13 +100,13 @@ ActiveRecord::Schema.define(version: 20160429233034) do
     t.text     "motivo_da_demissao"
     t.string   "recebeu_algum_valor"
     t.string   "quem_demitiu"
-    t.integer  "qte_de_faltas"
-    t.integer  "qte_atestados"
-    t.integer  "qte_suspensao"
-    t.integer  "qte_advertencia"
+    t.integer  "qte_de_faltas",               limit: 8
+    t.integer  "qte_atestados",               limit: 8
+    t.integer  "qte_suspensao",               limit: 8
+    t.integer  "qte_advertencia",             limit: 8
     t.string   "res_indireta"
     t.string   "assedio"
-    t.string   "vr_recebido_rescisao"
+    t.float    "vr_recebido_rescisao"
     t.string   "fgts"
     t.string   "parcial_fgts"
     t.string   "quarenta_fgts"
@@ -120,9 +120,9 @@ ActiveRecord::Schema.define(version: 20160429233034) do
     t.string   "p_quem"
     t.string   "licenca_mater"
     t.string   "suspensao"
-    t.integer  "qte_suspensao_gestante"
+    t.integer  "qte_suspensao_gestante",      limit: 8
     t.string   "advertencia"
-    t.string   "qte_advertencia_gestante"
+    t.integer  "qte_advertencia_gestante"
     t.datetime "data_e_hora"
     t.string   "dentro_fora_da_empresa"
     t.string   "socorro_hospital"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20160429233034) do
     t.string   "nova_funcao"
     t.date     "a_partir_de_quando"
     t.text     "observacoes_complementares"
+    t.integer  "cep_usuario",                 limit: 8
   end
 
   add_index "procurements", ["city_id"], name: "index_procurements_on_city_id", using: :btree
