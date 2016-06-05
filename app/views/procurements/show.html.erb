@@ -1,3 +1,11 @@
+
+<h3> Visualizar </h3>
+<div class="navbar navbar-fixed-bottom container">
+	<%= link_to 'Editar', edit_procurement_path(@procurement), class: 'btn btn-default glyphicon glyphicon-pencil' %> 
+	<%= link_to 'Procuração', edit_procurement_path(@procurement), class: 'btn btn-default glyphicon glyphicon-file' %>
+	<%= link_to 'Ficha', procurement_path(@procurement, :format => 'pdf'), class: 'btn btn-default glyphicon glyphicon-list'  %>
+	<%= link_to 'Voltar', procurements_path, class: 'btn btn-default glyphicon glyphicon-arrow-left' %>
+</div>
 <%= form_for @procurement do |f| %>
 <div class="panel-group" id="accordion">
 	<div class="panel panel-default">
@@ -678,8 +686,3 @@
 	<br>
 </div>
 <% end %>
-
-<%= link_to '', edit_procurement_path(@procurement), class: 'glyphicon glyphicon-pencil' %> | 
-<%= link_to 'Procuração', edit_procurement_path(@procurement), class: 'glyphicon glyphicon-file' %> | 
-<%= link_to 'Relatório', procurement_path(@procurement, :format => 'pdf'), class: 'glyphicon glyphicon-list'  %> | 
-<%= link_to '', procurements_path, class: 'glyphicon glyphicon-arrow-left' %>
