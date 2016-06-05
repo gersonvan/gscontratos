@@ -4,6 +4,11 @@ class ProcurementsController < ApplicationController
     
   def index
      @procurements = Procurement.all
+    if params[:search]
+       @procurements = Procurement.search(params[:search]).order("created_at DESC")
+     else
+       @procurements = Procurement.all.order('created_at DESC')
+     end
       respond_to do |format|
            format.html
        end
