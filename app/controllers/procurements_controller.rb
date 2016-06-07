@@ -20,7 +20,11 @@ class ProcurementsController < ApplicationController
         format.html
         format.pdf do
           pdf = ReportPdf.new(@procurement)
-          send_data pdf.render, filename: "#{@procurement.cliente}.pdf", type: 'application/pdf'
+          send_data pdf.render, filename: "Ficha_#{@procurement.cliente}.pdf", type: 'application/pdf'
+        end
+        format.pdf2 do
+          pdf2 = ReportPdf2.new(@procurement)
+          send_data pdf2.render, filename: "Procuracao_#{@procurement.cliente}.pdf", type: 'application/pdf'
         end
       end
     end
