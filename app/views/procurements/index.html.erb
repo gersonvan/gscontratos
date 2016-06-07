@@ -35,7 +35,8 @@
 		<td><%= procurement.cpf %></td>
 		<td><%= link_to ' ', procurement_path(procurement), class: 'glyphicon glyphicon-eye-open' %></td>
 		<td><%= link_to ' ', edit_procurement_path(procurement), class: 'glyphicon glyphicon-pencil' %></td>
-		<td><%= link_to '', edit_procurement_path(procurement), class: 'glyphicon glyphicon-file' %>
+		<td><%= link_to 'Procuração', procurement_path(procurement, :format => 'pdf2'), 
+			class: 'glyphicon glyphicon-file' %>
 		<br/>
 		<%= link_to '', procurement_path(procurement, :format => 'pdf'),
 			class: 'glyphicon glyphicon-list'  %></td>

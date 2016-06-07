@@ -694,5 +694,10 @@
 	</div>
 	<br>
 </div>
-<%= f.submit "Salvar" %>
+<div class="navbar navbar-fixed-bottom container">
+	<%= f.submit "Salvar", class: 'btn btn-default glyphicon glyphicon-floppy-disk' %>
+	<%= link_to 'Procuração', procurement_path(@procurement, :format => 'pdf2'), class: 'btn btn-default glyphicon glyphicon-file' %>
+	<%= link_to 'Ficha', procurement_path(@procurement, :format => 'pdf'), class: 'btn btn-default glyphicon glyphicon-list'  %>
+	<%= link_to 'Voltar', procurements_path, class: 'btn btn-default glyphicon glyphicon-arrow-left' %>
+</div>
 <% end %>
