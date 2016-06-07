@@ -16,8 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
-//= require bootstrap-datetimepicker
 //= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 $('.datepicker').datepicker()
