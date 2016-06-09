@@ -22,6 +22,9 @@
 	</tr>
 </table>
 <table class="table table-hover">
+	<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <% end %>
 	<thead>
 		<tr>
 			<th style="text-align:center"> Cliente</th>
