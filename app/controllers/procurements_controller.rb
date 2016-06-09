@@ -40,10 +40,10 @@ class ProcurementsController < ApplicationController
   def create
     @procurement = Procurement.new(procurement_params)
     if @procurement.save
-      flash[:sucess] = 'Procuração criada com sucesso'
-      redirect_to @procurement
+      flash[:sucess] = 'Ficha criada com sucesso'
+     redirect_to procurements_path
     else
-      flash[:danger] = 'Não foi possível criar Procuração'
+      flash[:danger] = 'Não foi possível criar Ficha'
       render 'new'
     end
   end
@@ -52,10 +52,10 @@ class ProcurementsController < ApplicationController
     @procurement = Procurement.find(params[:id])
    
     if @procurement.update(procurement_params)
-      flash[:sucess] = 'Procuração atualizada com sucesso'
-      redirect_to @procurement
+      flash[:sucess] = 'Ficha atualizada com sucesso'
+     redirect_to procurements_path
     else
-      flash[:danger] = 'Não foi possível atualizar a Procuração'
+      flash[:danger] = 'Não foi possível atualizar a Ficha'
       render 'edit'
     end
   end
@@ -63,10 +63,10 @@ class ProcurementsController < ApplicationController
   def destroy
     @procurement = Procurement.find(params[:id])
     if @procurement.destroy
-      flash[:sucess] = 'Procuração apagada com sucesso'
+      flash[:sucess] = 'Ficha apagada com sucesso'
       redirect_to procurements_path
       else
-        flash[:danger] = 'Ocorreu uma falha ao apagar Procuração, tente novamente'
+        flash[:danger] = 'Ocorreu uma falha ao apagar a Ficha, tente novamente'
         end
   end
   
