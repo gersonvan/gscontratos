@@ -12,6 +12,10 @@ class ReportPdf < Prawn::Document
     table5_content
     table6_content
     I18n.locale = :'pt-BR'
+    font_families.update(
+  "Calibri" => {  :normal => "calibri.ttf",
+                  :bold => "calibri.ttf",
+                  :italic => "calibrii.ttf"})
   end
 
   def header
@@ -23,36 +27,42 @@ class ReportPdf < Prawn::Document
   def table1_content
     table(procurement_rows_table1, :cell_style => { :size => 7}, :width => 540) do
       row(0).font_style = :bold
+      row(0).align = :center
       row(0).background_color = "F0F0F0"
     end
   end
   def table2_content
     table(procurement_rows_table2, :cell_style => { :size => 7}, :width => 540) do
       row(0).font_style = :bold
+      row(0).align = :center
       row(0).background_color = "F0F0F0"
     end
   end
   def table3_content
     table(procurement_rows_table3, :cell_style => { :size => 7}, :width => 540) do
       row(0).font_style = :bold
+      row(0).align = :center
       row(0).background_color = "F0F0F0"
     end
   end
   def table4_content
     table(procurement_rows_table4, :cell_style => { :size => 7}, :width => 540) do
       row(0).font_style = :bold
+      row(0).align = :center
       row(0).background_color = "F0F0F0"
     end
   end
   def table5_content
     table(procurement_rows_table5, :cell_style => { :size => 7}, :width => 540) do
       row(0).font_style = :bold
+      row(0).align = :center
       row(0).background_color = "F0F0F0"
     end
   end
   def table6_content
     table(procurement_rows_table6, :cell_style => { :size => 7}, :width => 540) do
       row(0).font_style = :bold
+      row(0).align = :center
       row(0).background_color = "F0F0F0"
     end
   end
@@ -165,7 +175,7 @@ class ReportPdf < Prawn::Document
   end
   def procurement_rows_table5
     [
-      [{:content => 'Gestante', :colspan => 10}],
+      [{:content => 'GESTANTE', :colspan => 10}],
       [{:content => 'INÍCIO GESTAÇÃO' + I18n.l(@procurement.inicio_gestacao, format: :default).to_s, :colspan => 1},
        {:content => 'ATESTADOS + ULTRASOM' + @procurement.atestados_ultrasom.to_s, :colspan => 2},
        {:content => 'DEU CONHECIMENTO NA EMPRESA?' + @procurement.deu_conhecimento_na_empresa.to_s, :colspan => 1},

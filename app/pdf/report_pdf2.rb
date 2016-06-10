@@ -19,6 +19,10 @@ class ReportPdf2 < Prawn::Document
     page_2_board_4
     page_2_board_5
     I18n.locale = :'pt-BR'
+    font_families.update(
+  "Calibri" => {  :normal => "calibri.ttf",
+                  :bold => "calibri.ttf",
+                  :italic => "calibrii.ttf"})
   end
 
   def header
