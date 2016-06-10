@@ -38,11 +38,11 @@
 		<td><%= procurement.cpf %></td>
 		<td><%= link_to ' ', procurement_path(procurement), class: 'glyphicon glyphicon-eye-open' %></td>
 		<td><%= link_to ' ', edit_procurement_path(procurement), class: 'glyphicon glyphicon-pencil' %></td>
-		<td><%= link_to 'Procuração', procurement_path(procurement, :format => 'pdf2'), 
+		<td><%= link_to 'Ficha', procurement_path(procurement, :format => 'pdf'), class: 'glyphicon glyphicon-list'  %>
+			<br/>
+			<%= link_to 'Procuração', procurement_path(procurement, :format => 'pdf2'), 
 			class: 'glyphicon glyphicon-file' %>
-		<br/>
-		<%= link_to '', procurement_path(procurement, :format => 'pdf'),
-			class: 'glyphicon glyphicon-list'  %></td>
+		</td>
 		<td><%= link_to procurement_path(procurement), 
 			method: :delete,
 			data: { confirm: 'Tem certeza?' } do %>
