@@ -153,12 +153,7 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :data_início_TR %>
 					<br>
-					<%= f.text_field :data_inicio_tr, 
-					value: (f.object.data_inicio_tr.strftime("%d/%m/%Y") if f.object.data_inicio_tr.present?),
-					"data-provide" => 'datepicker', 
-					"data-date-format" => "dd/mm/yyyy", 
-					"data-date-autoclose"=> 'true',
-					"data-date-language" => 'pt-BR' %>
+					<%= f.date_select :data_inicio_tr %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :reg_ctps %>
@@ -168,12 +163,7 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :d_registro %>
 					<br>
-					<%= f.text_field :data_registro,
-					value: (f.object.data_registro.strftime("%d/%m/%Y") if f.object.data_registro.present?),
-					"data-provide" => 'datepicker', 
-					"data-date-format" => "dd/mm/yyyy", 
-					"data-date-autoclose"=> 'true',
-					"data-date-language" => 'pt-BR' %>
+					<%= f.date_select :data_registro %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :período_avulso %>
@@ -414,22 +404,12 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :data_aviso %>
 					<br>
-					<%= f.text_field :data_aviso,
-					value: (f.object.data_aviso.strftime("%d/%m/%Y") if f.object.data_aviso.present?),
-					"data-provide" => 'datepicker', 
-					"data-date-format" => "dd/mm/yyyy", 
-					"data-date-autoclose"=> 'true',
-					"data-date-language" => 'pt-BR' %>
+					<%= f.date_select :data_aviso %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :ultimo_dia_trabalhado %>
 					<br>
-					<%= f.text_field :ultimo_dia_trabalhado,
-					value: (f.object.ultimo_dia_trabalhado.strftime("%d/%m/%Y") if f.object.ultimo_dia_trabalhado.present?),
-					"data-provide" => 'datepicker', 
-					"data-date-format" => "dd/mm/yyyy", 
-					"data-date-autoclose"=> 'true',
-					"data-date-language" => 'pt-BR' %>
+					<%= f.date_select :ultimo_dia_trabalhado %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :assinou_trct %>
@@ -528,12 +508,7 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :data_baixa_na_ctps %>
 					<br>
-					<%= f.text_field :data_baixa_na_ctps,
-					value: (f.object.data_baixa_na_ctps.strftime("%d/%m/%Y") if f.object.data_baixa_na_ctps.present?),
-					"data-provide" => 'datepicker', 
-					"data-date-format" => "dd/mm/yyyy", 
-					"data-date-autoclose"=> 'true',
-					"data-date-language" => 'pt-BR' %>
+					<%= f.date_select :data_baixa_na_ctps %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :devolucao_ctps %>
@@ -561,12 +536,7 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :inicio_gestacao %>
 					<br>
-					<%= f.text_field :inicio_gestacao,
-					value: (f.object.inicio_gestacao.strftime("%d/%m/%Y") if f.object.inicio_gestacao.present?),
-					"data-provide" => 'datepicker', 
-					"data-date-format" => "dd/mm/yyyy", 
-					"data-date-autoclose"=> 'true',
-					"data-date-language" => 'pt-BR' %>
+					<%= f.date_select :inicio_gestacao %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :atestados_ultrasom %>
@@ -625,8 +595,7 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :data_e_hora %>
 					<br>
-					<%= f.text_field :data_e_hora,
-					"data-provide" => 'datetimepicker' %>
+					<%= f.datetime_select :data_e_hora %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :dentro_fora_da_empresa %>
@@ -673,12 +642,7 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :a_partir_de_quando %>
 					<br>
-					<%= f.text_field :a_partir_de_quando,
-					value: (f.object.a_partir_de_quando.strftime("%d/%m/%Y") if f.object.a_partir_de_quando.present?),
-					"data-provide" => 'datepicker', 
-					"data-date-format" => "dd/mm/yyyy", 
-					"data-date-autoclose"=> 'true',
-					"data-date-language" => 'pt-BR' %>
+					<%= f.date_select :a_partir_de_quando %>
 				</div>
 			</div>
 		</div>
