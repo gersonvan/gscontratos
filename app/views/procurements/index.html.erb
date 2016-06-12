@@ -3,13 +3,13 @@
 	<tr>
 		<td>
 			<%= form_tag(procurements_path, :method => "get", id: "search-form") do %>
-				<%= text_field_tag :search, params[:search], placeholder: "Buscar Procuração" %>
+				<%= text_field_tag :search, params[:search], placeholder: "Buscar por Nome ou Número da Procuração" %>
 				<%= button_tag(type: "submit", class: "btn btn-default") do %>
 					<i class="glyphicon glyphicon-search"></i>
 					Buscar
 				<% end %>
 				<%= link_to procurements_path,  class: 'btn btn-default' do %>
-				<span class="glyphicon glyphicon-menu-hamburger"></span>
+				<span class="glyphicon glyphicon-list"></span>
 				Voltar para lista
 				<% end %>
 			<% end %>
@@ -17,7 +17,7 @@
 	</tr>
 	<tr>
 		<td style="text-align:right">
-			<%= link_to ' Novo Cadastro', new_procurement_path, class: 'glyphicon glyphicon-plus' %>
+			<%= link_to ' Novo Cadastro', new_procurement_path, class: 'btn btn-default glyphicon glyphicon-plus' %>
 		</td>
 	</tr>
 </table>

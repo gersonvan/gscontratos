@@ -21,7 +21,7 @@ class ReportPdf2 < Prawn::Document
     I18n.locale = :'pt-BR'
     font_families.update(
   "Calibri" => {  :normal => "calibri.ttf",
-                  :bold => "calibri.ttf",
+                  :bold => "calibrib.ttf",
                   :italic => "calibrii.ttf"})
   end
 
@@ -39,7 +39,7 @@ class ReportPdf2 < Prawn::Document
     move_down 30
     text "<b><u>OUTORGANTE:</u></b>", :inline_format => true
     text "NOME: <u>" + @procurement.cliente.to_s + "</u>", style: :bold, :inline_format => true
-    text "QUALIFICAÇÃO: <u>________________________</u>", style: :bold, :inline_format => true
+    text "QUALIFICAÇÃO: <u>" + @procurement.funcao.to_s + "</u>", style: :bold, :inline_format => true
     text "RG No.: <u>" + @procurement.rg.to_s + "</u>", style: :bold, :inline_format => true
     text "CPF No.: <u>" + @procurement.cpf.to_s + "</u>", style: :bold, :inline_format => true
     text "ENDEREÇO: <u>" + @procurement.endereco.to_s + "</u>", style: :bold, :inline_format => true
