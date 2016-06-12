@@ -13,15 +13,20 @@ class ReportPdf < Prawn::Document
     table6_content
     I18n.locale = :'pt-BR'
     font_families.update(
-  "Calibri" => {  :normal => "calibri.ttf",
-                  :bold => "calibrib.ttf",
-                  :italic => "calibrii.ttf"})
+    "Arial" => {  :normal =>  Rails.root.join('arial.ttf').to_s,
+                  :bold =>  Rails.root.join('arialrndd.ttf').to_s})
+    font_families.update(
+    "Calibri" => {  :normal => "calibri.ttf",
+                    :bold => "calibrib.ttf",
+                    :italic => "calibrii.ttf"})
   end
 
+
   def header
-    image "#{Rails.root}/app/assets/images/LogoSemFundo.png"
-    text "Ficha de Atendimento de Reclamação Trabalhista"
-    text "DATA: " + Date.today.strftime("%d/%m/%Y").to_s
+    font_size 12
+    text "G & S ADVOGADOS " +
+    "  Ficha de Atendimento de Reclamação Trabalhista " +
+    " DATA: " + Date.today.strftime("%d/%m/%Y").to_s, style: :bold, :align => :center
   end
 
   def table1_content
