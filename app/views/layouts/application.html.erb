@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-  <title>Gscontratos</title>
+  <title>G & S Advogados</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
 	
 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -15,29 +15,12 @@
 	input, textarea {
 		width: 95%;
 	}
-	
 </style>
-<script>
-$(document).ready(function(){
-   $("#telefone").inputmask({"mask": "(99) 9 9999-9999", 'removeMaskOnSubmit': true});
-   $("#cpf").inputmask({"mask": "999.999.999-99", 'removeMaskOnSubmit': true});
-   $("#cep").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
-   $("#cep2").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
-   $("#cnpj").inputmask({"mask": "99.999.999/9999-99", 'removeMaskOnSubmit': true});
-});
-$(document).ready(function() {
-  $('#saveButton').on('click', function() { $('#myForm').submit(); });
-});
-</script>
 </head>
     <div class="container">
       <div class="row">
         <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
           <%= yield %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         </div>
       </div>
     </div>

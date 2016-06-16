@@ -24,9 +24,9 @@ class ReportPdf < Prawn::Document
 
   def header
     font_size 12
-    text "G & S ADVOGADOS " +
-    "  Ficha de Atendimento de Reclamação Trabalhista " +
-    " DATA: " + Date.today.strftime("%d/%m/%Y").to_s, style: :bold, :align => :center
+    image "#{Rails.root}/app/assets/images/LogoTesteSemFundo.png", :scale => 0.35
+    text "  Ficha de Atendimento de Reclamação Trabalhista " +
+    " DATA: " + Date.today.strftime("%d/%m/%Y").to_s, style: :bold, :align => :right
   end
 
   def table1_content

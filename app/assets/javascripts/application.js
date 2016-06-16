@@ -20,3 +20,15 @@
 //= require_tree .
 
 $('.datepicker').datepicker();
+
+$(document).ready(function(){
+   $("#telefone").inputmask({"mask": "(99) 9 9999-9999", 'removeMaskOnSubmit': true});
+   $("#cpf").inputmask({"mask": "999.999.999-99", 'removeMaskOnSubmit': true});
+   $("#cep").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
+   $("#cep2").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
+   $("#cnpj").inputmask({"mask": "99.999.999/9999-99", 'removeMaskOnSubmit': true});
+});
+
+$(document).ready(function() {
+  $('#saveButton').on('click', function() { $('#myForm').submit(); });
+});
