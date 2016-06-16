@@ -26,7 +26,7 @@ class ReportPdf2 < Prawn::Document
   end
 
   def header
-    image "#{Rails.root}/app/assets/images/LogoSemFundo.png"
+    image "#{Rails.root}/app/assets/images/LogoTesteSemFundo.png", :scale => 0.35
   end
   
   def title_page_1
