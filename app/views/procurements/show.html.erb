@@ -1,8 +1,10 @@
 <h3> Visualizar </h3>
 <div class="navbar navbar-fixed-bottom container">
 	<%= link_to 'Editar', edit_procurement_path(@procurement), class: 'btn btn-default glyphicon glyphicon-pencil' %> 
+	<%= link_to 'Ficha', procurement_path(@procurement, :format => 'pdf'), class: 'btn btn-default glyphicon glyphicon glyphicon-list-alt'  %>
 	<%= link_to 'Procuração', procurement_path(@procurement, :format => 'pdf2'), class: 'btn btn-default glyphicon glyphicon-file' %>
-	<%= link_to 'Ficha', procurement_path(@procurement, :format => 'pdf'), class: 'btn btn-default glyphicon glyphicon-list'  %>
+	<%= link_to 'Contrato', procurement_path(@procurement, :format => 'pdf3'), class: 'btn btn-default glyphicon glyphicon glyphicon-folder-close'  %>
+	<!-- <%= link_to ' ', edit_procurement_path(procurement), class: 'glyphicon glyphicon-paperclip' %> -->
 	<%= link_to 'Voltar', procurements_path, class: 'btn btn-default glyphicon glyphicon-arrow-left' %>
 </div>
 <%= form_for @procurement do |f| %>

@@ -42,7 +42,7 @@
 			<th style="text-align:center"> Processo </th>
 			<th style="text-align:center"> Visualizar </th>
 			<th style="text-align:center"> Editar </th>
-			<th colspan="2" style="text-align:center"> Documentos </th>
+			<th colspan="3" style="text-align:center"> Documentos </th>
 			<!-- <th style="text-align:center"> Anexar </th> -->
 			<th style="text-align:center"> Excluir </th>
 		</tr>
@@ -53,9 +53,12 @@
 		<td><%= procurement.numero_do_processo %></td>
 		<td align="center"><%= link_to ' ', procurement_path(procurement), class: 'glyphicon glyphicon-eye-open' %></td>
 		<td align="center"><%= link_to ' ', edit_procurement_path(procurement), class: 'glyphicon glyphicon-pencil' %></td>
-		<td align="center"><%= link_to 'Ficha', procurement_path(procurement, :format => 'pdf'), class: 'glyphicon glyphicon-list'  %></td>
-		<td align="center"><%= link_to 'Procuração', procurement_path(procurement, :format => 'pdf2'), 
+		<td align="center"><%= link_to ' Ficha', procurement_path(procurement, :format => 'pdf'), class: 'glyphicon glyphicon glyphicon-list-alt'  %></td>
+		<td align="center"><%= link_to ' Procuração', procurement_path(procurement, :format => 'pdf2'), 
 			class: 'glyphicon glyphicon-file' %>
+		</td>
+		<td align="center"><%= link_to ' Contrato', procurement_path(procurement, :format => 'pdf3'), 
+			class: 'glyphicon glyphicon glyphicon-folder-close' %>
 		</td>
 		<!-- <td align="center"><%= link_to ' ', edit_procurement_path(procurement), class: 'glyphicon glyphicon-paperclip' %></td> -->
 		<td align="center"><%= link_to procurement_path(procurement), 
