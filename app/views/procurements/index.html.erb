@@ -1,7 +1,7 @@
 <table class="table">
 	<tr>
 		<td>
-			<%= image_tag("LogoTesteSemFundo.png") %>
+			<%= image_tag("LogoGSAdvogados.png") %>
 		</td>
 	</tr>
 	<tr>
@@ -10,14 +10,12 @@
 		</td>
 		<td style="text-align: right">
 			<%= form_tag(procurements_path, :method => "get", id: "search-form") do %>
-				<%= text_field_tag :search, params[:search], placeholder: "Buscar por Nome ou Número da Procuração" %>
+				<%= text_field_tag :search, params[:search], placeholder: "Buscar por Nome ou Número da Processo" %>
 				<%= button_tag(type: "submit", class: "btn btn-default") do %>
 					<i class="glyphicon glyphicon-search"></i>
-					Buscar
 				<% end %>
 				<%= link_to procurements_path,  class: 'btn btn-default' do %>
-				<span class="glyphicon glyphicon-list"></span>
-				Voltar para lista
+				<span class="glyphicon glyphicon-remove"></span>
 				<% end %>
 			<% end %>
 		</td>
@@ -41,7 +39,7 @@
 	<thead>
 		<tr>
 			<th style="text-align:center"> Cliente</th>
-			<th style="text-align:center"> CPF </th>
+			<th style="text-align:center"> Processo </th>
 			<th style="text-align:center"> Visualizar </th>
 			<th style="text-align:center"> Editar </th>
 			<th colspan="2" style="text-align:center"> Documentos </th>
@@ -52,7 +50,7 @@
 	<% @procurements.each do |procurement| %>
 	<tr>
 		<td><%= procurement.cliente %></td>
-		<td><%= procurement.cpf %></td>
+		<td><%= procurement.numero_do_processo %></td>
 		<td align="center"><%= link_to ' ', procurement_path(procurement), class: 'glyphicon glyphicon-eye-open' %></td>
 		<td align="center"><%= link_to ' ', edit_procurement_path(procurement), class: 'glyphicon glyphicon-pencil' %></td>
 		<td align="center"><%= link_to 'Ficha', procurement_path(procurement, :format => 'pdf'), class: 'glyphicon glyphicon-list'  %></td>
