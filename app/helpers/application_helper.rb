@@ -7,7 +7,7 @@ module ActionView
         existing_date = @object.send(method) 
 
         # Set default date if object's attr is nil
-        existing_date ||= Time.now.to_date
+#        existing_date ||= Time.now.to_date
 
         formatted_date = existing_date.to_date.strftime("%d/%m/%Y") if existing_date.present?
         @template.content_tag(:div, :class => "input-group") do    
@@ -20,7 +20,7 @@ module ActionView
         existing_time = @object.send(method) 
 
         # Set default date if object's attr is nil
-        existing_date ||= Time.now
+ #       existing_date ||= Time.now
 
         formatted_time = existing_time.to_time.strftime("%F %I:%M %p") if existing_time.present?
         @template.content_tag(:div, :class => "input-group") do    

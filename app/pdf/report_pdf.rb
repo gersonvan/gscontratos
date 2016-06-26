@@ -11,7 +11,6 @@ class ReportPdf < Prawn::Document
     table4_content
     table5_content
     table6_content
-    I18n.locale = :'pt-BR'
     font_families.update(
     "Arial" => {  :normal =>  Rails.root.join('arial.ttf').to_s,
                   :bold =>  Rails.root.join('arialrndd.ttf').to_s})
@@ -99,9 +98,9 @@ class ReportPdf < Prawn::Document
   def procurement_rows_table2
     [
       [{:content => 'CONTRATO DE TRABALHO', :colspan => 10}],
-       [{:content => 'DATA INÍCIO: '"\n" + I18n.l(@procurement.data_inicio_tr, format: :default).to_s, :colspan => 1},
+       [{:content => 'DATA INÍCIO: '"\n" + @procurement.data_inicio_tr.try(:strftime, "%d/%m/%Y").to_s, :colspan => 1},
          {:content => 'REG CTPS: '"\n" + @procurement.reg_ctps.to_s, :colspan => 1},
-         {:content => 'D. REGISTRO: '"\n" + I18n.l(@procurement.data_registro, format: :default).to_s, :colspan => 2},
+         {:content => 'D. REGISTRO: '"\n" + @procurement.data_registro.try(:strftime, "%d/%m/%Y").to_s, :colspan => 2},
          {:content => 'PERÍODO AVULSO: '"\n" + @procurement.periodo_avulso.to_s, :colspan => 1},
          {:content => 'FUNÇÃO: '"\n" + @procurement.funcao.to_s, :colspan => 1},
          {:content => 'SALÁRIO FINAL: '"\n" "R$ " + @procurement.salario_final.to_s, :colspan => 1},
@@ -153,8 +152,8 @@ class ReportPdf < Prawn::Document
       [{:content => 'DEMISSÃO E PAGAMENTO VERBAS RESCISÓRIAS', :colspan => 10}],
       [{:content => 'DEMITIDO?'"\n" + @procurement.demitido.to_s, :colspan => 1},
         {:content => 'MOTIVO'"\n" + @procurement.motivo.to_s, :colspan => 2},
-        {:content => 'DATA AVISO'"\n" + I18n.l(@procurement.data_aviso, format: :default).to_s, :colspan => 1},
-        {:content => 'ÚLTIMO DIA TRABALHADO'"\n" + I18n.l(@procurement.ultimo_dia_trabalhado, format: :default).to_s, :colspan => 1},
+        {:content => 'DATA AVISO'"\n" + @procurement.data_aviso.try(:strftime, "%d/%m/%Y").to_s, :colspan => 1},
+        {:content => 'ÚLTIMO DIA TRABALHADO'"\n" + @procurement.ultimo_dia_trabalhado.try(:strftime, "%d/%m/%Y").to_s, :colspan => 1},
         {:content => 'ASSINOU TRCT'"\n" + @procurement.assinou_trct.to_s, :colspan => 1},
         {:content => 'HOMOLOGAÇÃO?'"\n" + @procurement.homologacao_sindicato.to_s, :colspan => 1},
         {:content => 'RESSALVA'"\n" + @procurement.ressalva.to_s, :colspan => 1},
@@ -173,7 +172,7 @@ class ReportPdf < Prawn::Document
        {:content => 'PARCIAL'"\n" + @procurement.parcial_fgts.to_s, :colspan => 1},
        {:content => '40% FGTS: '"\n" + @procurement.quarenta_fgts.to_s, :colspan => 1},
        {:content => 'PARCIAL'"\n" + @procurement.parcial_quarenta_fgts.to_s, :colspan => 1},
-       {:content => 'DATA BAIXA NA CTPS'"\n" + I18n.l(@procurement.data_baixa_na_ctps, format: :default).to_s, :colspan => 2},
+       {:content => 'DATA BAIXA NA CTPS'"\n" + @procurement.data_baixa_na_ctps.try(:strftime, "%d/%m/%Y").to_s, :colspan => 2},
        {:content => 'DEVOLUÇÃO CTPS'"\n" + @procurement.devolucao_ctps.to_s, :colspan => 1},
        {:content => 'RECEBEU GSD: '"\n" + @procurement.recebeu_gsd.to_s, :colspan => 1}]
     ]
@@ -181,7 +180,7 @@ class ReportPdf < Prawn::Document
   def procurement_rows_table5
     [
       [{:content => 'GESTANTE', :colspan => 10}],
-      [{:content => 'INÍCIO GESTAÇÃO'"\n" + I18n.l(@procurement.inicio_gestacao, format: :default).to_s, :colspan => 1},
+      [{:content => 'INÍCIO GESTAÇÃO'"\n" + @procurement.inicio_gestacao.try(:strftime, "%d/%m/%Y").to_s, :colspan => 1},
        {:content => 'ATESTADOS+ULTRASOM'"\n" + @procurement.atestados_ultrasom.to_s, :colspan => 2},
        {:content => 'DEU CONHECIMENTO NA EMPRESA?'"\n" + @procurement.deu_conhecimento_na_empresa.to_s, :colspan => 1},
        {:content => 'P/QUEM?'"\n" + @procurement.p_quem.to_s, :colspan => 2},
@@ -193,7 +192,7 @@ class ReportPdf < Prawn::Document
   def procurement_rows_table6
     [
       [{:content => 'ACIDENTE DE TRABALHO', :colspan => 10}],
-      [{:content => 'DATA E HORA: '"\n" + @procurement.data_e_hora.to_s, :colspan => 2},
+      [{:content => 'DATA E HORA: '"\n" + @procurement.data_e_hora.try(:strftime, "%d/%m/%Y %L").to_s, :colspan => 2},
        {:content => 'DENTRO / FORA DA EMPRESA: '"\n" + @procurement.dentro_fora_da_empresa.to_s, :colspan => 2},
        {:content => 'SOCORRO / HOSPITAL: '"\n" + @procurement.socorro_hospital.to_s, :colspan => 2},
        {:content => 'EMISSÃO CAT: '"\n" + @procurement.emissao_cat.to_s, :colspan => 2},
@@ -202,7 +201,7 @@ class ReportPdf < Prawn::Document
        {:content => 'SEQUELAS: '"\n" + @procurement.sequelas.to_s, :colspan => 2},
        {:content => 'PARTE ATINGIDA: '"\n" + @procurement.parte_atingida.to_s, :colspan => 2},
        {:content => 'MUDANÇA FUNÇÃO: '"\n" + @procurement.mudanca_funcao.to_s, :colspan => 2},
-       {:content => 'A PARTIR DE QUANDO: '"\n" + I18n.l(@procurement.a_partir_de_quando, format: :default).to_s, :colspan => 2}]
+       {:content => 'A PARTIR DE QUANDO: '"\n" + @procurement.a_partir_de_quando.try(:strftime, "%d/%m/%Y").to_s, :colspan => 2}]
     ]
     end
 end
