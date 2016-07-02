@@ -174,7 +174,7 @@ class ReportPdf < Prawn::Document
        {:content => 'PARCIAL'"\n" + @procurement.parcial_quarenta_fgts.to_s, :colspan => 1},
        {:content => 'DATA BAIXA NA CTPS'"\n" + @procurement.data_baixa_na_ctps.try(:strftime, "%d/%m/%Y").to_s, :colspan => 2},
        {:content => 'DEVOLUÇÃO CTPS'"\n" + @procurement.devolucao_ctps.to_s, :colspan => 1},
-       {:content => 'RECEBEU GSD: '"\n" + @procurement.recebeu_gsd.to_s, :colspan => 1}]
+       {:content => 'RECEBEU GSD? '"\n" + @procurement.recebeu_gsd.to_s, :colspan => 1}]
     ]
   end
   def procurement_rows_table5
