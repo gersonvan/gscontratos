@@ -151,7 +151,7 @@
 					"data-date-language" => 'pt-BR' %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :reg_ctps %>
+					<%= f.label :reg_ctps, raw("CTPS") %>
 					<br>
 					<%= f.text_field :reg_ctps, disabled: true %>
 				</div>
@@ -516,7 +516,7 @@
 					<%= f.text_field :parcial_quarenta_fgts, disabled: true %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :data_baixa_na_ctps %>
+					<%= f.label :data_baixa_na_ctps, raw("Data de baixa na CTPS")  %>
 					<br>
 					<%= f.text_field :data_baixa_na_ctps, disabled: true,
 					value: (f.object.data_baixa_na_ctps.strftime("%d/%m/%Y") if f.object.data_baixa_na_ctps.present?),
@@ -526,12 +526,12 @@
 					"data-date-language" => 'pt-BR' %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :devolucao_ctps %>
+					<%= f.label :devolucao_ctps, raw("Devolução CTPS")  %>
 					<br>
 					<%= f.text_field :devolucao_ctps, disabled: true %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :recebeu_gsd %>
+					<%= f.label :recebeu_gsd, raw("Recebeu GSD?") %>
 					<br>
 					<%= f.text_field :recebeu_gsd, disabled: true %>
 				</div>

@@ -156,7 +156,7 @@
 					<%= f.date_select :data_inicio_tr %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :reg_ctps %>
+					<%= f.label :ctps, raw("CTPS") %>
 					<br>
 					<%= f.text_field :reg_ctps %>
 				</div>
@@ -506,17 +506,17 @@
 					<%= f.text_field :parcial_quarenta_fgts %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :data_baixa_na_ctps %>
+					<%= f.label :data_baixa_na_ctps, raw("Data de baixa na CTPS") %>
 					<br>
 					<%= f.date_select :data_baixa_na_ctps %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :devolucao_ctps %>
+					<%= f.label :devolucao_ctps, raw("Devolução CTPS") %>
 					<br>
 					<%= f.text_field :devolucao_ctps %>					
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :recebeu_gsd %>
+					<%= f.label :recebeu_gsd, raw("Recebeu GSD?") %>
 					<br>
 					<%= f.text_field :recebeu_gsd %>					
 				</div>
@@ -598,7 +598,7 @@
 					<%= f.datetime_select :data_e_hora %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :dentro_fora_da_empresa %>
+					<%= f.label :dentro_fora_da_empresa, raw("Dentro/Fora da Empresa") %>
 					<br>
 					<%= f.text_field :dentro_fora_da_empresa %>
 				</div>
