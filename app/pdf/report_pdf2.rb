@@ -34,7 +34,11 @@ class ReportPdf2 < Prawn::Document
     text "QUALIFICAÇÃO: <u>" + @procurement.funcao.to_s + "</u>", style: :bold, :inline_format => true
     text "RG No.: <u>" + @procurement.rg.to_s + "</u>", style: :bold, :inline_format => true
     text "CPF No.: <u>" + @procurement.cpf.to_s + "</u>", style: :bold, :inline_format => true
-    text "ENDEREÇO: <u>" + @procurement.endereco.to_s + "</u>", style: :bold, :inline_format => true
+    text "ENDEREÇO: <u>" + @procurement.endereco.to_s + 
+               " - " + @procurement.bairro.to_s +
+               " - CEP: " + @procurement.cep_usuario.to_s +
+               " - " + @procurement.cidade.to_s + "</u>", 
+               style: :bold, :inline_format => true
     text "pelo presente instrumento particular de procuração nomeia seus bastantes procuradores os advogados:"
     move_down 20
     text "<b><u>OUTORGADOS:</u></b>", :inline_format => true
