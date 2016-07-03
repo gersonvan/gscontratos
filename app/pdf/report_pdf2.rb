@@ -39,7 +39,8 @@ class ReportPdf2 < Prawn::Document
                " - CEP: " + @procurement.cep_usuario.to_s +
                " - " + @procurement.cidade.to_s + "</u>", 
                style: :bold, :inline_format => true
-    text "pelo presente instrumento particular de procuração nomeia seus bastantes procuradores os advogados:"
+    text "pelo presente instrumento particular de procuração nomeia seus bastantes procuradores os advogados:",
+    :align => :justify
     move_down 20
     text "<b><u>OUTORGADOS:</u></b>", :inline_format => true
   end
@@ -48,14 +49,17 @@ class ReportPdf2 < Prawn::Document
     stroke_bounds
     move_down 10
     text "MARIA LÚCIA GUEDES DE SOUZA, inscrita na OAB-CE sob o nº 9.632 e LIA RAQUEL DE SOUZA ESCUDEIRO, inscrita na OAB-CE sob o nº 16.187, ambas com endereço profissional à Av. Mendel Steinbruch nº 3615, Sala 201 Altos – PAJUÇARA – Maracanaú-CE - Fone: (85) 32931929, onde  recebem intimações, notificações, citações, etc.", 
-    size: 11, :inline_format => true
+    size: 11, 
+    :inline_format => true,
+    :align => :justify
     end
   end
   def page_1_body_content_2  
     move_down 110
     text "<b>PODERES:</b>  Pelo presente instrumento de procuração ao final assinado, o outorgante nomeia e constitui os advogados acima qualificados, a quem confere amplos e ilimitados poderes com a cláusula <b>“Ad Judicia”</b> para o foro em geral, especificamente para isolados ou conjuntamente, proporem  <b>RECLAMAÇÃO TRABALHISTA</b> em favor do outorgante junto ao <b>Tribunal Regional do Trabalho da 7ª. Região</b>, acompanhando-as até o final, em todos os seus termos, em todas as Instâncias ou Tribunal, podendo interpor todos os recursos em direito permitidos, ou desistir, entrar em acordos, agravar ou apelar de qualquer despacho ou sentença,fazer e assinar requerimentos, produzir provas e justificações, transigir, firmar compromissos, fazer acordos concernentes a presente ação, finalmente, receber Alvarás e respectivos valores concernentes ao pleito, inclusive de FGTS,  tudo mais usar e praticar, requerer e assinar para o completo desempenho deste mandato, inclusive substabelecer, com ou sem reserva de poderes, dando tudo por bem, firme  e valioso.", 
     :inline_format => true,
-    size: 12
+    size: 12,
+    :align => :justify
   end
   def page_1_board_2
       bounding_box([0, 150], :width => 540, :height => 30) do
