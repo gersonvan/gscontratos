@@ -4,7 +4,6 @@
 	<%= link_to 'Ficha', procurement_path(@procurement, :format => 'pdf'), class: 'btn btn-default glyphicon glyphicon glyphicon-list-alt'  %>
 	<%= link_to 'Procuração', procurement_path(@procurement, :format => 'pdf2'), class: 'btn btn-default glyphicon glyphicon-file' %>
 	<%= link_to 'Contrato', procurement_path(@procurement, :format => 'pdf3'), class: 'btn btn-default glyphicon glyphicon-folder-close'  %>
-	<!-- <%= link_to ' Anexar', procurement_path(@procurement), class: 'glyphicon glyphicon-paperclip' %> -->
 	<%= link_to 'Voltar', procurements_path, class: 'btn btn-default glyphicon glyphicon-arrow-left' %>
 </div>
 <%= render 'form' %>
