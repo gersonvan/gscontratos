@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703181701) do
+ActiveRecord::Schema.define(version: 20160905171825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20160703181701) do
     t.text     "descricao"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.integer  "fones",                       limit: 8
     t.integer  "rg",                          limit: 8
     t.integer  "cpf",                         limit: 8
     t.string   "estado_civil"
@@ -141,6 +140,9 @@ ActiveRecord::Schema.define(version: 20160703181701) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
     t.string   "nacionalidade"
+    t.integer  "fones",                       limit: 8
+    t.integer  "fone2",                       limit: 8
+    t.integer  "fone3",                       limit: 8
   end
 
   add_index "procurements", ["city_id"], name: "index_procurements_on_city_id", using: :btree

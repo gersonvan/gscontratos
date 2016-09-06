@@ -74,7 +74,7 @@ class ReportPdf < Prawn::Document
     [
       [{:content => 'DADOS GERAIS', :colspan => 10}],
         [{:content => 'CLIENTE: '"\n" + @procurement.cliente.to_s, :colspan => 7},
-          {:content => 'FONES: '"\n" + @procurement.fones.to_s, :colspan => 3}],
+          {:content => 'TELEFONE: '"\n" + @procurement.fones.to_s + ", " + @procurement.fone2.to_s + ", " + @procurement.fone3.to_s, :colspan => 3}],
         [{:content => 'RG: '"\n" + @procurement.rg.to_s, :colspan => 3},
           {:content => 'CPF: '"\n" + @procurement.cpf.to_s, :colspan => 3},
           {:content => 'ESTADO CIVIL: '"\n" + @procurement.estado_civil.to_s, :colspan =>4}],
