@@ -31,7 +31,9 @@
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 					<%= f.label :telefone %>
 					<br>
-					<%= f.number_field :fones, disabled: true, id: 'telefone' %>
+					<%= f.text_field :fones, disabled: true, id: 'telefone' %>
+					<%= f.text_field :fone2, disabled: true, id: 'telefone2' %>
+					<%= f.text_field :fone3, disabled: true, id: 'telefone3' %>
 				</div>
 			</div>
 			<div class="row">
@@ -65,7 +67,7 @@
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 					<%= f.label :cep %>
 					<br>
-					<%= f.text_field :cep_usuario, disabled: true %>
+					<%= f.text_field :cep_usuario, disabled: true, id: 'cep' %>
 				</div>
 			</div>
 			<div class="row">
@@ -89,7 +91,7 @@
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 					<%= f.label :cnpj %>
 					<br>
-					<%= f.text_field :cnpj, disabled: true %>
+					<%= f.text_field :cnpj, disabled: true, id: 'cnpj' %>
 				</div>
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 					<%= f.label :nome_fantasia %>

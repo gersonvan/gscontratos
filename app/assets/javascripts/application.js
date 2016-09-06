@@ -23,6 +23,8 @@ $('.datepicker').datepicker();
 
 $(document).ready(function(){
    $("#telefone").inputmask({"mask": "(99) 9 9999-9999", 'removeMaskOnSubmit': true});
+   $("#telefone2").inputmask({"mask": "(99) 9 9999-9999", 'removeMaskOnSubmit': true});
+   $("#telefone3").inputmask({"mask": "(99) 9 9999-9999", 'removeMaskOnSubmit': true});
    $("#cpf").inputmask({"mask": "999.999.999-99", 'removeMaskOnSubmit': true});
    $("#cep").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
    $("#cep2").inputmask({"mask": "99.999-999", 'removeMaskOnSubmit': true});
