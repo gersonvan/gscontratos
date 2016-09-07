@@ -1,0 +1,20 @@
+<%= form_for @profession, :html => {:id => "myForm"} do |f| %>
+  <% if @profession.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profession.errors.count, "error") %> ao salvar Profissão:</h2>
+
+      <ul>
+      <% @profession.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<%= f.label :profissão %>
+			<br>
+			<%= f.text_field :profissao %>
+		</div>
+	</div>
+<% end %>

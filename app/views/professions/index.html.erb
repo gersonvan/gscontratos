@@ -1,0 +1,59 @@
+<table class="table">
+	<div class="navbar navbar-fixed-bottom container">
+		<%= link_to 'Voltar', procurements_path, class: 'btn btn-default glyphicon glyphicon-arrow-left' %>
+	</div>
+	<tr>
+		<td>
+			<%= image_tag("LogoGSAdvogados.png") %>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:left">
+			<%= link_to ' Nova Profissão', new_profession_path, class: 'btn btn-default glyphicon glyphicon-plus' %>
+		</td>
+	</tr>
+</table>
+<table class="table table-condensed">
+	<% flash.each do |type, content| %>
+    <% if content.respond_to?('each') 
+        content.each do |item| %>
+            <%= render 'layouts/alert', 
+                type: type,
+                content: item %>
+        <% end %>
+    <% else %>
+        <%= render 'layouts/alert', 
+                type: type,
+                content: content %>
+    <% end %>
+
+<% end %>
+  <thead>
+		<tr>
+			<th style="text-align:center"> Profissão</th>
+			<th style="text-align:center"> Editar </th>
+			<th style="text-align:center"> Excluir </th>
+		</tr>
+	</thead>
+  	<% if @professions.empty? %>
+		<tr>
+			<td colspan="3">
+				<br>
+				<font color="red" style="bold">Nenhum Profissão cadastrada.</font>
+			</td>
+		</tr>
+	<% else %>
+	    <% @professions.each do |profession| %>
+	      <tr>
+	        <td><%= profession.profissao %></td>
+	        <td align="center"><%= link_to ' ', edit_profession_path(profession), 
+	        	class: 'glyphicon glyphicon-pencil' %></td>
+	        <td align="center"><%= link_to profession_path(profession), 
+				method: :delete,
+				data: { confirm: 'Tem certeza?' } do %>
+				<span class="glyphicon glyphicon-trash"></span>
+			<% end %></td>
+	      </tr>
+	    <% end %>
+   <% end %>
+</table>

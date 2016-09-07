@@ -157,6 +157,26 @@
 		</div>
 		<div id="collapse2" class="panel-collapse collapse">
 			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<% professions_array = Profession.all.map { |profession| [profession.profissao] } %>
+					<%= f.label :profissão %>
+					<% if professions_array.empty? %>
+						<br />
+						Não há profissões cadastradas.			
+						<br />
+						<br />
+					<% else %>
+						<br />
+						<%= f.text_field :profissao_ficha, :class => 'awesomplete', :list => 'mylist' %>
+							<datalist id="mylist">
+								<% professions_array.each do |profession| %>
+									<option><%= profession[0].to_s %></option>
+								<%end%>
+							</datalist>
+					<% end %>
+       			</div>
+			</div>
+			<div class="row">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :data_início_TR %>
 					<br>
@@ -168,7 +188,7 @@
 					<%= f.text_field :reg_ctps %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :d_registro %>
+					<%= f.label :data %>
 					<br>
 					<%= f.date_select :data_registro %>
 				</div>

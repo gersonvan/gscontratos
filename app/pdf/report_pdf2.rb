@@ -32,7 +32,9 @@ class ReportPdf2 < Prawn::Document
     text "<b><u>OUTORGANTE:</u></b>", :inline_format => true
     text "NOME: <u>" + @procurement.cliente.to_s + "</u>", style: :bold, :inline_format => true
     text "QUALIFICAÇÃO: <u>" + @procurement.nacionalidade.to_s +
-         " - " + @procurement.estado_civil.to_s + "</u>", style: :bold, :inline_format => true
+         " - " + @procurement.estado_civil.to_s + 
+         " - " + @procurement.profissao_ficha.to_s +
+         "</u>", style: :bold, :inline_format => true
     text "RG No.: <u>" + @procurement.rg.to_s + "</u>", style: :bold, :inline_format => true
     text "CPF No.: <u>" + @procurement.cpf.to_s + "</u>", style: :bold, :inline_format => true
     text "ENDEREÇO: <u>" + @procurement.endereco.to_s + 
