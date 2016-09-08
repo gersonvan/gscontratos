@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :professions
-  get 'users/new'
 
   #get 'welcome/index'
   resources :procurements
