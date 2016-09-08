@@ -620,12 +620,19 @@
 		<div id="collapse6" class="panel-collapse collapse">
 			<div class="row">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :data_e_hora %>
+					<%= f.label :data %>
 					<br>
-					<%= f.datetime_select :data_e_hora %>
+					<%= f.date_select :data_acidente %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :dentro_fora_da_empresa, raw("Dentro/Fora da Empresa") %>
+					<%= f.label :hora %>
+					<br>
+					<%= f.time_field :hora_acidente %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<%= f.label :dentro_fora_da_empresa, raw("Empresa: Dentro/Fora?") %>
 					<br>
 					<%= f.text_field :dentro_fora_da_empresa %>
 				</div>

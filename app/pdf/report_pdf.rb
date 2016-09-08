@@ -131,7 +131,7 @@ class ReportPdf < Prawn::Document
     [
       [{:content => 'JORNADA E HORÁRIO DE TRABALHO', :colspan => 10}],
         [{:content => 'JORNADA: '"\n" + @procurement.jornada.to_s, :colspan => 2},
-          {:content => 'HORÁRIO: '"\n" + @procurement.horario.to_s, :colspan => 1},
+          {:content => 'HORÁRIO: '"\n" + @procurement.horario.try(:strftime, "%H:%M").to_s, :colspan => 1},
           {:content => 'INTERVALO: '"\n" + @procurement.intervalo.to_s, :colspan => 2},
           {:content => 'SÁBADO: '"\n" + @procurement.sabado.to_s, :colspan => 2},
           {:content => 'DOM/FERIADOS/D.SANTOS: '"\n" + @procurement.domingo_feriado_dia_santo.to_s, :colspan => 2},
@@ -193,7 +193,7 @@ class ReportPdf < Prawn::Document
   def procurement_rows_table6
     [
       [{:content => 'ACIDENTE DE TRABALHO', :colspan => 10}],
-      [{:content => 'DATA E HORA: '"\n" + @procurement.data_e_hora.try(:strftime, "%d/%m/%Y %L").to_s, :colspan => 2},
+      [{:content => 'DATA E HORA: '"\n" + @procurement.data_acidente.try(:strftime, "%d/%m/%Y").to_s + " - " + @procurement.hora_acidente.try(:strftime, "%H:%M").to_s, :colspan => 2},
        {:content => 'DENTRO / FORA DA EMPRESA: '"\n" + @procurement.dentro_fora_da_empresa.to_s, :colspan => 2},
        {:content => 'SOCORRO / HOSPITAL: '"\n" + @procurement.socorro_hospital.to_s, :colspan => 2},
        {:content => 'EMISSÃO CAT: '"\n" + @procurement.emissao_cat.to_s, :colspan => 2},
