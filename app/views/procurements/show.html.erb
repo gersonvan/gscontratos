@@ -322,7 +322,8 @@
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :horario %>
 					<br>
-					<%= f.time_field :horario, disabled: true %>
+					<%= f.time_field :horario, disabled: true,
+					value: (f.object.horario.strftime("%H:%M") if f.object.horario.present?) %>
 				</div>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :intervalo %>
@@ -633,11 +634,23 @@
 		<div id="collapse6" class="panel-collapse collapse">
 			<div class="row">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<%= f.label :data_e_hora %>
+					<%= f.label :data %>
 					<br>
-					<%= f.text_field :data_e_hora, disabled: true,
-					"data-provide" => 'datetimepicker' %>
+					<%= f.text_field :data_acidente, disabled: true,
+					value: (f.object.data_acidente.strftime("%d/%m/%Y") if f.object.data_acidente.present?),
+					"data-provide" => 'datepicker', 
+					"data-date-format" => "dd/mm/yyyy", 
+					"data-date-autoclose"=> 'true',
+					"data-date-language" => 'pt-BR' %>
 				</div>
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<%= f.label :hora %>
+					<br>
+					<%= f.time_field :hora_acidente, disabled: true,
+					value: (f.object.hora_acidente.strftime("%H:%M") if f.object.hora_acidente.present?) %>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<%= f.label :dentro_fora_da_empresa %>
 					<br>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906140805) do
+ActiveRecord::Schema.define(version: 20160908132134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,7 +122,6 @@ ActiveRecord::Schema.define(version: 20160906140805) do
     t.integer  "qte_suspensao_gestante",      limit: 8
     t.string   "advertencia"
     t.integer  "qte_advertencia_gestante"
-    t.datetime "data_e_hora"
     t.string   "dentro_fora_da_empresa"
     t.string   "socorro_hospital"
     t.string   "emissao_cat"
@@ -144,6 +143,8 @@ ActiveRecord::Schema.define(version: 20160906140805) do
     t.integer  "fone2",                       limit: 8
     t.integer  "fone3",                       limit: 8
     t.string   "profissao_ficha"
+    t.date     "data_acidente"
+    t.datetime "hora_acidente"
   end
 
   add_index "procurements", ["city_id"], name: "index_procurements_on_city_id", using: :btree
