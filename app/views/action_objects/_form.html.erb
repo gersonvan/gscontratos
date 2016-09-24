@@ -1,0 +1,20 @@
+<%= form_for @action_object, :html => {:id => "myForm"} do |f| %>
+  <% if @action_object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@action_object.errors.count, "error") %> ao salvar Objeto de Ação.</h2>
+
+      <ul>
+      <% @action_object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<%= f.label :objeto_de_ação %>
+			<br>
+			<%= f.text_field :objeto %>
+		</div>
+	</div>
+<% end %>

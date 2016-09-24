@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908132134) do
+ActiveRecord::Schema.define(version: 20160914010121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_objects", force: :cascade do |t|
+    t.string   "objeto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -45,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160908132134) do
     t.string   "proprietario_empresa"
     t.integer  "cep_empresa"
     t.string   "ramo_de_atividade"
-    t.text     "objeto_de_acao"
+    t.string   "objeto_de_acao"
     t.integer  "city_id"
     t.date     "data_inicio_tr"
     t.string   "reg_ctps"

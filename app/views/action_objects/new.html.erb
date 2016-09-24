@@ -1,0 +1,18 @@
+<table class="table">
+	<tr>
+		<td>
+			<%= image_tag("LogoGSAdvogados.png") %>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:left">
+			<h3>Novo Objeto de Ação</h3>
+		</td>
+	</tr>
+</table>
+<div class="navbar navbar-fixed-bottom container">
+	<button id="saveButton" class="btn btn-primary glyphicon glyphicon-floppy-disk"> Salvar</button>
+	<%= link_to ' Lista de Procurações', procurements_path, class: 'btn btn-default glyphicon glyphicon-list-alt' %>
+	<%= link_to ' Voltar', action_objects_path, class: 'btn btn-default glyphicon glyphicon-arrow-left' %>
+</div>
+<%= render 'form' %>
