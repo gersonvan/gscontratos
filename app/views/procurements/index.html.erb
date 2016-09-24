@@ -8,6 +8,7 @@
 		<td style="text-align:left">
 			<%= link_to ' Novo Cadastro', new_procurement_path, class: 'btn btn-default glyphicon glyphicon-plus' %>
 			<%= link_to 'Profissões', professions_path, class: 'btn btn-default glyphicon' %>
+			<%= link_to 'Objeto de Ação', action_objects_path, class: 'btn btn-default glyphicon' %>
 		</td>
 		<td style="text-align: right">
 			<%= form_tag(procurements_path, :method => "get", id: "search-form") do %>

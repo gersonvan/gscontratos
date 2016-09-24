@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :action_objects
   resources :professions
 
   #get 'welcome/index'

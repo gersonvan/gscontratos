@@ -139,9 +139,23 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"> 
+					<% action_objects_array = ActionObject.all.map { |action_object| [action_object.objeto] } %>
 					<%= f.label :objeto_de_ação %>
-					<br>
-					<%= f.text_field :objeto_de_acao %>
+					<% if action_objects_array.empty? %>
+						<br />
+						Não há Objetos de Ação cadastrados.			
+						<br />
+						<br />
+					<% else %>
+						<br />
+						<%= f.text_field :objeto_de_acao, :class => 'awesomplete', :list => 'mylist', 
+						:data => { :multiple => ''} %>
+							<datalist id="mylist">
+								<% action_objects_array.each do |action_object| %>
+									<option><%= action_object[0].to_s %></option>
+								<%end%>
+							</datalist>
+					<% end %>
 				</div>
 				<br>
 			</div>
