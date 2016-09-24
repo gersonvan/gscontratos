@@ -148,9 +148,9 @@
 						<br />
 					<% else %>
 						<br />
-						<%= f.text_field :objeto_de_acao, :class => 'awesomplete', :list => 'mylist', 
+						<%= f.text_field :objeto_de_acao, :class => 'awesomplete', :list => 'objetos', 
 						:data => { :multiple => ''} %>
-							<datalist id="mylist">
+							<datalist id="objetos">
 								<% action_objects_array.each do |action_object| %>
 									<option><%= action_object[0].to_s %></option>
 								<%end%>
@@ -181,8 +181,8 @@
 						<br />
 					<% else %>
 						<br />
-						<%= f.text_field :profissao_ficha, :class => 'awesomplete', :list => 'mylist' %>
-							<datalist id="mylist">
+						<%= f.text_field :profissao_ficha, :class => 'awesomplete', :list => 'profissoes' %>
+							<datalist id="profissoes">
 								<% professions_array.each do |profession| %>
 									<option><%= profession[0].to_s %></option>
 								<%end%>
