@@ -138,7 +138,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"> 
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 awesomplete"> 
 					<% action_objects_array = ActionObject.all.map { |action_object| [action_object.objeto] } %>
 					<%= f.label :objeto_de_ação %>
 					<% if action_objects_array.empty? %>
@@ -148,8 +148,7 @@
 						<br />
 					<% else %>
 						<br />
-						<%= f.text_field :objeto_de_acao, :class => 'awesomplete', :list => 'objetos', 
-						:data => { :multiple => ''} %>
+						<%= f.text_field :objeto_de_acao, :class => 'awesomplete', :list => 'objetos', :data => { :multiple => ''} %>
 							<datalist id="objetos">
 								<% action_objects_array.each do |action_object| %>
 									<option><%= action_object[0].to_s %></option>
