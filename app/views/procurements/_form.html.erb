@@ -138,7 +138,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 awesomplete"> 
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9"> 
 					<% action_objects_array = ActionObject.all.map { |action_object| [action_object.objeto] } %>
 					<%= f.label :objeto_de_ação %>
 					<% if action_objects_array.empty? %>
@@ -148,7 +148,7 @@
 						<br />
 					<% else %>
 						<br />
-						<%= f.text_field :objeto_de_acao, :class => 'awesomplete', :list => 'objetos', :data => { :multiple => ''} %>
+						<%= f.text_field :objeto_de_acao, :list => 'objetos', :data => { :multiple => ''} %>
 							<datalist id="objetos">
 								<% action_objects_array.each do |action_object| %>
 									<option><%= action_object[0].to_s %></option>
@@ -161,7 +161,7 @@
 		</div>
 	</div>
 	<div class="panel panel-default">
-		<div class="panel-heading" style="background-color: #b2cad6 !important;">
+		<div class="panel-heading" style="background-color: #DF21A0 !important;">
 			<h4 class="panel-title">
 				<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
 					Contrato de Trabalho
@@ -325,7 +325,7 @@
 		</div>
 	</div>
 	<div class="panel panel-default">
-		<div class="panel-heading" style="background-color: #92acbd !important;">
+		<div class="panel-heading" style="background-color: #92D050 !important;">
 			<h4 class="panel-title">
 				<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
 					Jornada e Horário de Trabalho
@@ -422,7 +422,7 @@
 		</div>
 	</div>
 	<div class="panel panel-default">
-		<div class="panel-heading" style="background-color: #7d8b92 !important;">
+		<div class="panel-heading" style="background-color: #FFC000 !important;">
 			<h4 class="panel-title">
 				<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
 					Demissão e Pagamento - Verbas Rescisórias
@@ -712,4 +712,17 @@
 	</div>
 	<br>
 </div>
+<script>
+	new Awesomplete('input[data-multiple]', {
+	filter: function(text, input) {
+		return Awesomplete.FILTER_CONTAINS(text, input.match(/[^,]*$/)[0]);
+	},
+
+	replace: function(text) {
+		var before = this.input.value.match(/^.+,\s*|/)[0];
+		this.input.value = before + text + ", ";
+	}
+});
+	
+</script>
 <% end %>
