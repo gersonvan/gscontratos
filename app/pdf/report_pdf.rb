@@ -139,7 +139,7 @@ class ReportPdf < Prawn::Document
     [
       [{:content => 'JORNADA E HORÁRIO DE TRABALHO', :colspan => 10}],
         [{:content => 'JORNADA: '"\n" + @procurement.jornada.to_s, :colspan => 2},
-          {:content => 'HORÁRIO: '"\n" + @procurement.horario.try(:strftime, "%H:%M").to_s, :colspan => 1},
+          {:content => 'HORÁRIO: '"\n" + @procurement.horario.try(:strftime, "%H:%M").to_s + " - " + @procurement.horario_final_jornada.try(:strftime, "%H:%M").to_s, :colspan => 1},
           {:content => 'INTERVALO: '"\n" + @procurement.intervalo.to_s, :colspan => 2},
           {:content => 'SÁBADO: '"\n" + @procurement.sabado.to_s, :colspan => 2},
           {:content => 'DOM/FERIADOS/D.SANTOS: '"\n" + @procurement.domingo_feriado_dia_santo.to_s, :colspan => 2},
