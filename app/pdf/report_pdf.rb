@@ -11,6 +11,7 @@ class ReportPdf < Prawn::Document
     table4_content
     table5_content
     table6_content
+    table7_content
     font_families.update(
     "Arial" => {  :normal =>  Rails.root.join('arial.ttf').to_s,
                   :bold =>  Rails.root.join('arialrndd.ttf').to_s})
@@ -65,6 +66,13 @@ class ReportPdf < Prawn::Document
   end
   def table6_content
     table(procurement_rows_table6, :cell_style => { :size => 7}, :width => 540) do
+      row(0).font_style = :bold
+      row(0).align = :center
+      row(0).background_color = "F0F0F0"
+    end
+  end
+  def table7_content
+    table(procurement_rows_table7, :cell_style => { :size => 7}, :width => 540) do
       row(0).font_style = :bold
       row(0).align = :center
       row(0).background_color = "F0F0F0"
@@ -203,6 +211,12 @@ class ReportPdf < Prawn::Document
        {:content => 'PARTE ATINGIDA: '"\n" + @procurement.parte_atingida.to_s, :colspan => 2},
        {:content => 'MUDANÇA FUNÇÃO: '"\n" + @procurement.mudanca_funcao.to_s, :colspan => 2},
        {:content => 'A PARTIR DE QUANDO: '"\n" + @procurement.a_partir_de_quando.try(:strftime, "%d/%m/%Y").to_s, :colspan => 2}]
+    ]
+    end
+   def procurement_rows_table7
+    [
+      [{:content => 'OBSERVAÇÕES COMPLEMENTARES', :colspan => 10}],
+      [{:content => @procurement.observacoes_complementares.to_s, :colspan => 10}]
     ]
     end
 end
