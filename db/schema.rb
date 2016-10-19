@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014191852) do
+ActiveRecord::Schema.define(version: 20161019193401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20161014191852) do
     t.string   "recebeu_ferias"
     t.string   "periodos_n_gozados"
     t.string   "recebia_13"
-    t.integer  "ano_que_n_recebeu_13",        limit: 8
+    t.string   "ano_que_n_recebeu_13"
     t.string   "recebia_pl"
     t.string   "gratificacoes"
     t.string   "outros"
