@@ -31,11 +31,15 @@ class ReportPdf3 < Prawn::Document
     end
   end
   def page_1_board_2
-    bounding_box([0, 685], :width => 540, :height => 75) do
+    bounding_box([0, 685], :width => 540, :height => 80) do
       stroke_bounds
       move_down 5
-        indent 5, 0 do
-          text "Pelo presente contrato de prestação de serviços e de honorários advocatícios, tendo de um lado, como <b>CONTRATADOS</b>, os advogados <b>MARIA LÚCIA GUEDES DE SOUZA, inscrita na OAB-CE sob o nº 9.632 E LIA RAQUEL DE SOUZA ESCUDEIRO, inscrita na OAB-CE sob o nº 16.187, todos com endereço profissional à Av. Mendel Steinbruch nº 3615, Sala 201 Altos – PAJUÇARA – Maracanaú-CE - Fone: (85) 32931929, onde recebem intimações, notificações, citações, etc.</b>, e do outro como <b>CONTRATANTE Sr(a) " + @procurement.cliente.to_s + " RG nº " + @procurement.rg.to_s + " SSP-CE, CPF Nº " + @procurement.cpf.to_s + " <i>in fine</i> </b>assinado(a), todos qualificados no instrumento procuratório, outorgam e aceitam as cláusulas adiante convencionadas:",
+        indent 5, 5 do
+          text "Pelo presente contrato de prestação de serviços e de honorários advocatícios, tendo de um lado, como <b>CONTRATADOS</b>, os advogados <b>MARIA LÚCIA GUEDES DE SOUZA, inscrita na OAB-CE sob o nº 9.632 E LIA RAQUEL DE SOUZA ESCUDEIRO, inscrita na OAB-CE sob o nº 16.187 e MARCIA MARIA LIMA SANTANA, inscrita na OAB-CE sob o nº 19.766, todos com endereço profissional à Av. Mendel Steinbruch nº 3615, Sala 201 Altos – PAJUÇARA – Maracanaú-CE - Fone: (85) 32931929, onde recebem intimações, notificações, citações, etc.</b>, e do outro como <b>CONTRATANTE Sr(a) " + 
+          @procurement.cliente.to_s + 
+          @procurement.rg.try(" RG nº " + @procurement.rg.to_s + " SSP-CE ").to_s + 
+          @procurement.cpf.try(", CPF Nº " + @procurement.cpf.to_s).to_s + 
+          " <i>in fine</i> </b>assinado(a), todos qualificados no instrumento procuratório, outorgam e aceitam as cláusulas adiante convencionadas:",
         :inline_format => true,
         size: 9,
         :align => :justify
@@ -43,7 +47,7 @@ class ReportPdf3 < Prawn::Document
       end
     end
   def page_1_body_content_1
-    move_down 10
+    move_down 5
     text "1. As <b>CONTRATADAS</b> comprometem-se nos termos da procuração que lhes foi outorgada, a prestarem seus serviços profissionais na defesa dos direitos trabalhistas do <b>CONTRATANTE</b> em Juízo junto a uma das Varas do  TRT da 7a Região, promovendo a competente <b><u>Reclamação Trabalhista</b></u>, e acompanhá-la até decisão judicial final na 3ª Instância;",
     :inline_format => true,
     size: 9,
@@ -60,7 +64,7 @@ class ReportPdf3 < Prawn::Document
     bounding_box([0, 525], :width => 540, :height => 85) do
       stroke_bounds
       move_down 5
-        indent 5, 0 do
+        indent 5, 5 do
           text "3. A título de remuneração, independentemente do fixado em Juízo, as CONTRATADAS receberão do(a) <b>CONTRATANTE</b> a título de <b>HONORÁRIOS CONTRATUAIS CONVENCIONAIS, 25%</b> do valor total que for recebido por este, inclusive sobre o FGTS que constar depositado, pelos serviços prestados NA FASE DE CONHECIMENTO. CASO O PROCESSO ATINJA A FASE <b>RECURSAL OU DE EXECUÇÃO</b>, O PERCENTUAL A SER RECEBIDO SERÁ DE <b>30%</b>. Caso o objeto da ação seja <b>ACIDENTE, DOENÇA OCUPACIONAL, JUSTA CAUSA, RESCISÃO INDIRETA, OU INSALUBRIDADE/PERICULOSIDADE, o percentual será de 30%, até a fase final de conhecimento e de 35% NA FASE RECURSAL OU DE EXECUÇÃO</b> dado a complexidade da causa, que a justiça do trabalho não concede honorários sucumbenciais para advogado particular.",
           :inline_format => true,
           size: 9,
@@ -85,7 +89,7 @@ class ReportPdf3 < Prawn::Document
     bounding_box([0, 365], :width => 540, :height => 35) do
       stroke_bounds
       move_down 5
-        indent 5, 0 do
+        indent 5, 5 do
           text "6.  A remuneração acima poderá ser exigida nas seguintes hipóteses: 1º) No processo findo com decisão favorável; 2º) Na composição amigável, inclusive extra-processual;",
           :inline_format => true,
           size: 9,
@@ -97,7 +101,7 @@ class ReportPdf3 < Prawn::Document
     bounding_box([0, 320], :width => 540, :height => 40) do
       stroke_bounds
       move_down 5
-      indent 5, 0 do
+      indent 5, 5 do
         text "7.  Quando a ação <b><u>for extinta</u></b> por qualquer circunstância alheia à vontade das CONTRATADAS ou no caso de ser a iniciativa do contratante a <b><u>desistência</u></b> da ação quando já protocolada, <b>o CONTRATANTE pagará as CONTRATADAS o valor de 1(hum) salário mínimo.</b>",
         :inline_format => true,
         size: 9,
@@ -146,7 +150,7 @@ class ReportPdf3 < Prawn::Document
       text "Maracanaú-CE, " + I18n.localize(Date.today(), format: :default), size: 10
       move_down 15
       text "Contratante: _________________________________", size: 10 
-      draw_text @procurement.cliente.to_s + " - " + @procurement.cpf.to_s, :at => [60,70], size: 10
+      draw_text @procurement.cliente.to_s + @procurement.cpf.try(" - " + @procurement.cpf.to_s).to_s, :at => [60,70], size: 10
       move_down 20
       text "Contratadas: __________________________           __________________________", size: 10
       move_down 20

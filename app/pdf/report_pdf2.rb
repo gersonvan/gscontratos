@@ -32,15 +32,16 @@ class ReportPdf2 < Prawn::Document
     text "<b><u>OUTORGANTE:</u></b>", :inline_format => true
     text "NOME: <u>" + @procurement.cliente.to_s + "</u>", style: :bold, :inline_format => true
     text "QUALIFICAÇÃO: <u>" + @procurement.nacionalidade.to_s +
-         " - " + @procurement.estado_civil.to_s + 
-         " - " + @procurement.profissao_ficha.to_s +
+         @procurement.estado_civil.try(" - " + @procurement.estado_civil.to_s).to_s + 
+         @procurement.profissao_ficha.try(" - " + @procurement.profissao_ficha.to_s).to_s +
          "</u>", style: :bold, :inline_format => true
     text "RG No.: <u>" + @procurement.rg.to_s + "</u>", style: :bold, :inline_format => true
     text "CPF No.: <u>" + @procurement.cpf.to_s + "</u>", style: :bold, :inline_format => true
     text "ENDEREÇO: <u>" + @procurement.endereco.to_s + 
-               " - " + @procurement.bairro.to_s +
-               " - CEP: " + @procurement.cep_usuario.to_s +
-               " - " + @procurement.cidade.to_s + "</u>", 
+               @procurement.bairro.try(" - " + @procurement.bairro.to_s).to_s +
+               @procurement.cep_usuario.try(" - CEP: " + @procurement.cep_usuario.to_s).to_s +
+               @procurement.cidade.try(" - " + @procurement.cidade.to_s).to_s + 
+               "</u>", 
                style: :bold, :inline_format => true
     text "pelo presente instrumento particular de procuração nomeia seus bastantes procuradores os advogados:",
     :align => :justify
@@ -48,13 +49,15 @@ class ReportPdf2 < Prawn::Document
     text "<b><u>OUTORGADOS:</u></b>", :inline_format => true
   end
   def page_1_board_1
-    bounding_box([0, 460], :width => 540, :height => 60) do
+    bounding_box([0, 460], :width => 540, :height => 62) do
     stroke_bounds
     move_down 10
-    text "MARIA LÚCIA GUEDES DE SOUZA, inscrita na OAB-CE sob o nº 9.632 e LIA RAQUEL DE SOUZA ESCUDEIRO, inscrita na OAB-CE sob o nº 16.187, ambas com endereço profissional à Av. Mendel Steinbruch nº 3615, Sala 201 Altos – PAJUÇARA – Maracanaú-CE - Fone: (85) 32931929, onde  recebem intimações, notificações, citações, etc.", 
-    size: 11, 
-    :inline_format => true,
-    :align => :justify
+    indent 5, 5 do
+      text "MARIA LÚCIA GUEDES DE SOUZA, inscrita na OAB-CE sob o nº 9.632, LIA RAQUEL DE SOUZA ESCUDEIRO, inscrita na OAB-CE sob o nº 16.187 e MARCIA MARIA LIMA SANTANA, inscrita na OAB-CE sob o nº 19.766, todas com endereço profissional à Av. Mendel Steinbruch nº 3615, Sala 201 Altos – PAJUÇARA – Maracanaú-CE - Fone: (85) 32931929, onde  recebem intimações, notificações, citações, etc.", 
+      size: 11, 
+      :inline_format => true,
+      :align => :justify
+    end
     end
   end
   def page_1_body_content_2  
