@@ -32,15 +32,15 @@ class ReportPdf2 < Prawn::Document
     text "<b><u>OUTORGANTE:</u></b>", :inline_format => true
     text "NOME: <u>" + @procurement.cliente.to_s + "</u>", style: :bold, :inline_format => true
     text "QUALIFICAÇÃO: <u>" + @procurement.nacionalidade.to_s +
-         @procurement.estado_civil.try(" - " + @procurement.estado_civil.to_s).to_s + 
-         @procurement.profissao_ficha.try(" - " + @procurement.profissao_ficha.to_s).to_s +
+         " - " + @procurement.estado_civil.to_s + 
+         " - " + @procurement.profissao_ficha.to_s +
          "</u>", style: :bold, :inline_format => true
     text "RG No.: <u>" + @procurement.rg.to_s + "</u>", style: :bold, :inline_format => true
     text "CPF No.: <u>" + @procurement.cpf.to_s + "</u>", style: :bold, :inline_format => true
     text "ENDEREÇO: <u>" + @procurement.endereco.to_s + 
-               @procurement.bairro.try(" - " + @procurement.bairro.to_s).to_s +
-               @procurement.cep_usuario.try(" - CEP: " + @procurement.cep_usuario.to_s).to_s +
-               @procurement.cidade.try(" - " + @procurement.cidade.to_s).to_s + 
+               " - " + @procurement.bairro.to_s +
+               " - CEP: " + @procurement.cep_usuario.to_s +
+               " - " + @procurement.cidade.to_s + 
                "</u>", 
                style: :bold, :inline_format => true
     text "pelo presente instrumento particular de procuração nomeia seus bastantes procuradores os advogados:",

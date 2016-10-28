@@ -37,8 +37,8 @@ class ReportPdf3 < Prawn::Document
         indent 5, 5 do
           text "Pelo presente contrato de prestação de serviços e de honorários advocatícios, tendo de um lado, como <b>CONTRATADOS</b>, os advogados <b>MARIA LÚCIA GUEDES DE SOUZA, inscrita na OAB-CE sob o nº 9.632 E LIA RAQUEL DE SOUZA ESCUDEIRO, inscrita na OAB-CE sob o nº 16.187 e MARCIA MARIA LIMA SANTANA, inscrita na OAB-CE sob o nº 19.766, todos com endereço profissional à Av. Mendel Steinbruch nº 3615, Sala 201 Altos – PAJUÇARA – Maracanaú-CE - Fone: (85) 32931929, onde recebem intimações, notificações, citações, etc.</b>, e do outro como <b>CONTRATANTE Sr(a) " + 
           @procurement.cliente.to_s + 
-          @procurement.rg.try(" RG nº " + @procurement.rg.to_s + " SSP-CE ").to_s + 
-          @procurement.cpf.try(", CPF Nº " + @procurement.cpf.to_s).to_s + 
+          " RG nº " + @procurement.rg.to_s + " SSP-CE " + 
+          ", CPF Nº " + @procurement.cpf.to_s + 
           " <i>in fine</i> </b>assinado(a), todos qualificados no instrumento procuratório, outorgam e aceitam as cláusulas adiante convencionadas:",
         :inline_format => true,
         size: 9,
@@ -150,7 +150,7 @@ class ReportPdf3 < Prawn::Document
       text "Maracanaú-CE, " + I18n.localize(Date.today(), format: :default), size: 10
       move_down 15
       text "Contratante: _________________________________", size: 10 
-      draw_text @procurement.cliente.to_s + @procurement.cpf.try(" - " + @procurement.cpf.to_s).to_s, :at => [60,70], size: 10
+      draw_text @procurement.cliente.to_s + " - " + @procurement.cpf.to_s, :at => [60,70], size: 10
       move_down 20
       text "Contratadas: __________________________           __________________________", size: 10
       move_down 20
