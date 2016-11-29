@@ -35,6 +35,7 @@ class ProcurementsController < ApplicationController
      
   def new
     @procurement = Procurement.new
+    @maximum_length = Procurement.validators_on( :observacoes_complementares ).first.options[:maximum]
   end
   
   def edit
