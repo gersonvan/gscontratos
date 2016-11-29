@@ -447,6 +447,11 @@
   margin-left: -5px;
   margin-right: -5px;
 }
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
 [hidden] { display: none; }
 
 .visually-hidden {
