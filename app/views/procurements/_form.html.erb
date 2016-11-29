@@ -707,7 +707,7 @@
 		<div id="collapse7" class="panel-collapse collapse">
 			<div class="row">
 				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-					<%= f.text_area :observacoes_complementares, :maxlength => 200, id: 'observacoes_complementares'  %>
+					<%= f.text_area :observacoes_complementares, :maxlength => 400, id: 'observacoes_complementares'  %>
 					 Caracteres Restantes: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
 				</div>
 			</div>
@@ -732,7 +732,7 @@
     $(document).ready(function() {
       var observacoes_complementares = $("#observacoes_complementares");
       var counter = $("#counter");
-      var max_length = 200;//counter.data("maximum-length");
+      var max_length = counter.data("maximum-length");
 
       observacoes_complementares.keyup(function() {
           counter.text(max_length - $(this).val().length);
